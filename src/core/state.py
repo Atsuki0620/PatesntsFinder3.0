@@ -23,6 +23,7 @@ class AppState(BaseModel):
     Streamlitアプリケーション全体のセッション状態を管理する。
     """
     chat_history: List[Tuple[str, str]] = Field(default_factory=list, description="LLMとの対話履歴 (user, assistant)")
+    plan_text: Optional[str] = Field(None, description="ユーザーとの対話から生成された調査方針テキスト") # 追加
     search_query: SearchQuery = Field(default_factory=SearchQuery)
     
     # 検索実行後のフィールド
@@ -30,6 +31,9 @@ class AppState(BaseModel):
     analyzed_results: Optional[pd.DataFrame] = Field(None, description="類似度分析後の検索結果")
     summary: Optional[str] = None
     error: Optional[str] = None
+
+    # 類似度計算の重み
+    similarity_weights: dict = Field(default_factory=lambda: {"title": 0.4, "abstract": 0.4, "claims": 0.2}, description="類似度計算の重み")
 
     # 追加フィールド
     generated_sql: str = Field("", description="実行用に生成されたSQL文")

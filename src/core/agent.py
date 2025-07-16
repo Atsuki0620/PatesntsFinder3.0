@@ -16,42 +16,74 @@ embeddings_model = OpenAIEmbeddings(model="text-embedding-3-small", api_key=os.e
 # --- プロンプトテンプレート ---
 # ルーター用プロンプト
 ROUTER_PROMPT = ChatPromptTemplate.from_template(
-    """あなたは、ユーザーとの対話の文脈を読み解き、次に取るべきアクションを判断するルーターです。
-    以下の対話履歴から、ユーザーの意図を判断し、'continue_dialogue'（対話継続）か 'generate_query'（検索条件の生成）のどちらかを選択してください。
+    """あなたは、ユーザーとの対話の文脈と現在のアプリケーションの状態を読み解き、次に取るべきアクションを判断するルーターです。
+    以下の情報から、ユーザーの意図を判断し、'continue_dialogue'（対話継続）、'generate_plan'（調査方針の生成）、'generate_query'（検索条件の生成）のいずれかを選択してください。
 
     対話履歴:
     {chat_history}
 
+    現在の調査方針:
+    {plan_text}
+
     判断基準:
     - ユーザーが最初の質問をしたばかり、または情報が不足している場合は 'continue_dialogue'。
-    - 検索対象が具体的になり、キーワードや技術分野が明確になった場合、またはユーザーが「進めて」「検索して」「条件生成」のような明確な指示をした場合は 'generate_query'。
+    - 対話が進み、調査の方向性が見えてきたが、まだ具体的な調査方針が固まっていない場合は 'generate_plan'。
+    - 調査方針が既に存在し、ユーザーが検索実行を指示した場合（例：「検索して」「これでOK」）、または調査方針が明確な場合は 'generate_query'。
 
-    あなたの判断（'continue_dialogue' または 'generate_query' のみを出力）:"""
+    あなたの判断（'continue_dialogue', 'generate_plan', 'generate_query' のみを出力）:"""
 )
 
 # 対話継続用プロンプト
 CONTINUE_DIALOGUE_PROMPT = ChatPromptTemplate.from_template(
-    """あなたは、特許調査をサポートする親切なAIアシスタントです。
-    ユーザーとの対話を続け、調査したい内容を具体化する手助けをしてください。
-    以下の対話履歴を参考に、ユーザーに質問を投げかけてください。
-
-    対話履歴:
-    {chat_history}
-
-    あなたの応答:"""
-)
-
-# 条件生成用プロンプト
-GENERATE_QUERY_PROMPT = ChatPromptTemplate.from_messages([
-    ("system", "あなたは、ユーザーとの対話履歴から、特許検索のための構造化されたクエリ（IPCコード、キーワード）を生成する専門家です。対話の文脈全体を考慮してください。"),
-    ("human", """以下の対話履歴を基に、特許検索クエリをJSON形式で生成してください。
-
+    """あなたは、特許調査をサポートするAIアシスタントです。
+    ユーザーの意図を深く理解するため、多様な切り口から調査の可能性を広げる質問を投げかけてください。
+    以下の対話履歴を分析し、ユーザーが気づいていないかもしれない潜在的なニーズを掘り起こすような、鋭い質問をしてください。
+    
     対話履歴:
     {chat_history}
 
     あなたのタスク:
-    1. 対話履歴から、検索に最も適したキーワードを日本語と英語の両方で抽出する。
-    2. 対話履歴から、関連性の高いIPCコードを複数抽出する。""")
+    1. 対話履歴から、ユーザーの調査目的の核心を推測する。
+    2. その核心に基づき、調査の方向性を具体化するための選択肢を、以下の5つの異なる視点から提案する。
+        - **技術の核心:** どのような技術的特徴に焦点を当てるか？（例：特定のアルゴリズム、材料、構造など）
+        - **課題解決:** どのような課題を解決するための技術か？（例：効率化、コスト削減、安全性向上など）
+        - **応用分野:** どのような製品やサービスへの応用を想定しているか？（例：自動運転、医療診断、製造業など）
+        - **IPC分類:** 関連しそうな特許分類（IPC）は何か？（いくつか候補を挙げる）
+        - **狙い（ビジネス観点）:** この調査を通じて、どのようなビジネス上の価値を得たいか？（例：新規事業のシーズ探索、競合他社の動向調査、自社技術の優位性確認など）
+    3. 各選択肢の末尾に、ユーザーが考えを深めるための具体的な質問を付け加える。
+    4. 最後に、ユーザーに「どの方向性で調査を深めたいか、番号で選ぶか、あるいは自由に修正・追記してください。」と促す。
+
+    あなたの応答:"""
+)
+)
+
+# 調査方針生成用プロンプト
+GENERATE_PLAN_PROMPT = ChatPromptTemplate.from_template(
+    """あなたは、特許調査の専門家です。
+    以下の対話履歴から、ユーザーが本当に調査したいであろう内容の核心を捉え、
+    200〜300字程度の調査方針を立案してください。
+    調査方針は、背景、目的、具体的な調査対象（技術、課題、応用先など）を含むように構成してください。
+
+    対話履歴:
+    {chat_history}
+
+    生成された調査方針:"""
+)
+
+# 条件生成用プロンプト
+GENERATE_QUERY_PROMPT = ChatPromptTemplate.from_messages([
+    ("system", "あなたは、ユーザーとの対話履歴と調査方針から、特許検索のための構造化されたクエリ（IPCコード、キーワード）を生成する専門家です。文脈全体を考慮してください。"),
+    ("human", """以下の対話履歴と調査方針を基に、特許検索クエリをJSON形式で生成してください。
+
+    対話履歴:
+    {chat_history}
+
+    調査方針:
+    {plan_text}
+
+    あなたのタスク:
+    1. 調査方針と対話履歴から、検索に最も適したキーワードを日本語と英語の両方で抽出する。
+    2. 調査方針と対話履歴から、関連性の高いIPCコードを複数抽出する。""")
 ])
 
 # SQL解説用プロンプト
@@ -75,32 +107,55 @@ PROMPT_SUMMARIZE_PATENTS = ChatPromptTemplate.from_template(
 )
 
 # --- LangGraph ノード定義 ---
-def route_action(state: AppState) -> Literal["continue_dialogue", "generate_query"]:
+def route_action(state: AppState) -> Literal["continue_dialogue", "generate_plan", "generate_query"]:
     print("--- Node: route_action ---")
     latest_user_input = state.chat_history[-1][1] if state.chat_history else ""
-    if any(keyword in latest_user_input for keyword in ["進めて", "検索して", "条件生成", "これでいい", "OK"]):
-        return "generate_query"
+    
+    # ユーザーが明示的に検索を指示した場合
+    if any(keyword in latest_user_input for keyword in ["検索して", "これでいい", "OK"]):
+        if state.plan_text:
+            return "generate_query"
+        else:
+            return "generate_plan"
+
+    # プロンプトで判断
     chain = ROUTER_PROMPT | model
     history_str = "\n".join([f"{role}: {msg}" for role, msg in state.chat_history])
-    response = chain.invoke({"chat_history": history_str}).content
-    return "generate_query" if 'generate_query' in response else "continue_dialogue"
+    response = chain.invoke({"chat_history": history_str, "plan_text": state.plan_text or ""}).content
+    
+    if 'generate_query' in response:
+        return "generate_query"
+    if 'generate_plan' in response:
+        return "generate_plan"
+    return "continue_dialogue"
 
 def continue_dialogue(state: AppState) -> AppState:
     print("--- Node: continue_dialogue ---")
     chain = CONTINUE_DIALOGUE_PROMPT | model
     history_str = "\n".join([f"{role}: {msg}" for role, msg in state.chat_history])
     response = chain.invoke({"chat_history": history_str}).content
-    response += "\n\n現在の情報で検索条件を生成したい場合は、『進めて』と入力してください。"
+    response += "\n\n調査の方向性が固まってきたら、AIが調査方針を生成します。"
+    response += "現在の情報で調査方針を生成させたい場合は、『調査方針を作成して』と入力してください。"
     state.chat_history.append(("assistant", response))
+    return state
+
+def generate_plan(state: AppState) -> AppState:
+    print("--- Node: generate_plan ---")
+    chain = GENERATE_PLAN_PROMPT | model
+    history_str = "\n".join([f"{role}: {msg}" for role, msg in state.chat_history])
+    plan = chain.invoke({"chat_history": history_str}).content
+    state.plan_text = plan
+    state.chat_history.append(("assistant", f"対話の内容に基づいて、以下の調査方針を生成しました。\n\n---\n**調査方針（自動生成）**\n{plan}\n---\n\n内容を確認・編集し、よろしければ『この方針で検索条件を生成』ボタンを押してください。"))
     return state
 
 def generate_query(state: AppState) -> AppState:
     print("--- Node: generate_query ---")
     chain = GENERATE_QUERY_PROMPT | model.with_structured_output(SearchQuery)
     history_str = "\n".join([f"{role}: {msg}" for role, msg in state.chat_history])
-    state.search_query = chain.invoke({"chat_history": history_str})
-    state.chat_history.append(("assistant", "対話の内容に基づいて、検索条件を生成しました。右のエリアで内容を確認・編集してください。よろしければ『検索開始』ボタンを押してください。"))
+    state.search_query = chain.invoke({"chat_history": history_str, "plan_text": state.plan_text})
+    state.chat_history.append(("assistant", "調査方針に基づいて、検索条件を生成しました。右のエリアで内容を確認・編集してください。よろしければ『検索開始』ボタンを押してください。"))
     return state
+
 
 def generate_sql_and_explanation(state: AppState) -> AppState:
     """検索クエリからSQL文と解説を生成する"""
@@ -132,7 +187,7 @@ def execute_search(state: AppState) -> AppState:
     return state
 
 def analyze_results(state: AppState) -> AppState:
-    """検索結果を分析し、類似度を計算する"""
+    """検索結果を分析し、調査方針との類似度を計算する"""
     print("--- Node: analyze_results ---")
     state.current_agent_node = "analyze_results"
     
@@ -142,32 +197,50 @@ def analyze_results(state: AppState) -> AppState:
         state.analyzed_results = pd.DataFrame()
         return state
 
-    tech_content = "\n".join([msg for role, msg in state.chat_history if role == "user"]) or "特許検索"
+    # 調査方針のテキスト（plan_text）がなければ、ユーザー入力の履歴を結合して使う
+    plan_text = state.plan_text or "\n".join([msg for role, msg in state.chat_history if role == "user"])
+    if not plan_text:
+        state.error = "類似度計算の基準となる調査方針またはユーザー入力がありません。"
+        state.analyzed_results = df # ソート前の結果を返す
+        return state
 
-    # リファクタリング後のクエリから返される統一カラム名を使用
-    required_cols = ['title', 'abstract', 'claims']
-    for col in required_cols:
-        if col not in df.columns:
-            state.error = f"検索結果に必須カラム({col})がありません。SQLクエリを確認してください。"
-            state.analyzed_results = pd.DataFrame()
-            return state
-
-    patents_text = (
-        "Title: " + df["title"].fillna("") + "\n" +
-        "Abstract: " + df["abstract"].fillna("") + "\n" +
-        "Claims: " + df["claims"].fillna("")
-    ).tolist()
+    # 各セクションのテキストを準備
+    titles = df["title"].fillna("").tolist()
+    abstracts = df["abstract"].fillna("").tolist()
+    claims = df["claims"].fillna("").tolist()
 
     try:
-        tech_content_embedding = embeddings_model.embed_query(tech_content)
-        patents_embeddings = embeddings_model.embed_documents(patents_text)
-        similarities = cosine_similarity([tech_content_embedding], patents_embeddings)[0]
-        
+        # 調査方針と各セクションのEmbeddingを計算
+        plan_embedding = embeddings_model.embed_query(plan_text)
+        title_embeddings = embeddings_model.embed_documents(titles)
+        abstract_embeddings = embeddings_model.embed_documents(abstracts)
+        claim_embeddings = embeddings_model.embed_documents(claims)
+
+        # コサイン類似度を計算
+        sim_title = cosine_similarity([plan_embedding], title_embeddings)[0]
+        sim_abstract = cosine_similarity([plan_embedding], abstract_embeddings)[0]
+        sim_claims = cosine_similarity([plan_embedding], claim_embeddings)[0]
+
+        # 重み付け平均でスコアを算出
+        weights = state.similarity_weights
+        score = (
+            sim_title * weights.get("title", 0.4) +
+            sim_abstract * weights.get("abstract", 0.4) +
+            sim_claims * weights.get("claims", 0.2)
+        )
+
+        # 結果をDataFrameに追加
         analyzed_df = df.copy()
-        analyzed_df["similarity"] = similarities
-        state.analyzed_results = analyzed_df.sort_values(by="similarity", ascending=False).reset_index(drop=True)
+        analyzed_df["sim_title"] = sim_title
+        analyzed_df["sim_abstract"] = sim_abstract
+        analyzed_df["sim_claims"] = sim_claims
+        analyzed_df["score"] = score
+        
+        # スコアで降順にソート
+        state.analyzed_results = analyzed_df.sort_values(by="score", ascending=False).reset_index(drop=True)
+
     except Exception as e:
-        state.error = f"埋め込みベクトルの計算中にエラーが発生しました: {e}"
+        state.error = f"埋め込みベクトルの計算または類似度計算中にエラーが発生しました: {e}"
         state.analyzed_results = df # ソート前の結果を返す
         
     print("分析が完了しました。")
@@ -195,9 +268,18 @@ def summarize_selected_patents(state: AppState) -> AppState:
 # --- ワークフローの構築 ---
 interaction_workflow = StateGraph(AppState)
 interaction_workflow.add_node("continue_dialogue", continue_dialogue)
+interaction_workflow.add_node("generate_plan", generate_plan)
 interaction_workflow.add_node("generate_query", generate_query)
-interaction_workflow.set_conditional_entry_point(route_action, {"continue_dialogue": "continue_dialogue", "generate_query": "generate_query"})
+interaction_workflow.set_conditional_entry_point(
+    route_action, 
+    {
+        "continue_dialogue": "continue_dialogue", 
+        "generate_plan": "generate_plan",
+        "generate_query": "generate_query"
+    }
+)
 interaction_workflow.add_edge("continue_dialogue", END)
+interaction_workflow.add_edge("generate_plan", END) # 調査方針ができたら一旦ユーザーに返す
 interaction_workflow.add_edge("generate_query", END)
 interaction_app = interaction_workflow.compile()
 

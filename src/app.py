@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os
-from utils.config import load_env
+from utils.config import load_env, setup_api_keys
 from core.state import AppState
 from core.agent import run_interaction, execute_patent_search_workflow, run_summary_workflow
 
@@ -10,7 +10,7 @@ load_env()
 
 # --- ページ設定 ---
 st.set_page_config(
-    page_title="PatentsFinder2.1 - Conversational",
+    page_title="PatentsFinder2.2 - Conversational",
     page_icon=" patent:",
     layout="wide",
 )
@@ -22,6 +22,15 @@ app_state: AppState = st.session_state.app_state
 
 # --- サイドバー ---
 with st.sidebar:
+    st.title("APIキー設定")
+    openai_api_key = st.text_input("OpenAI API Key", type="password", placeholder="sk-...")
+    gcp_sa_json_str = st.text_area("GCP Service Account JSON", type="password", placeholder='{\n  "type": "service_account",\n  ...\n}')
+    
+    if st.button("APIキーを設定"):
+        setup_api_keys(openai_api_key, gcp_sa_json_str)
+
+    st.divider()
+
     st.title("表示設定")
     # 表示言語選択UI
     app_state.display_language = st.radio(
@@ -32,10 +41,10 @@ with st.sidebar:
     )
 
 # --- メイン画面 ---
-st.title("PatentsFinder2.1 - 対話型特許検索")
+st.title("PatentsFinder2.2 - 対話型特許検索")
 
 if not os.environ.get("OPENAI_API_KEY") or not os.environ.get("GOOGLE_APPLICATION_CREDENTIALS"):
-    st.warning("APIキーが設定されていません。.envファイルまたは環境変数で設定してください。")
+    st.warning("APIキーが設定されていません。サイドバーから入力・設定してください。")
     st.stop()
 
 # --- UIレイアウト ---
@@ -65,7 +74,21 @@ with col1:
         st.rerun()
 
 with col2:
-    st.header("2. 検索条件の確認・編集")
+    st.header("2. 調査方針の確認・編集")
+    app_state.plan_text = st.text_area(
+        "調査方針（自動生成）",
+        value=app_state.plan_text or "",
+        height=200
+    )
+
+    if st.button("この方針で検索条件を生成", disabled=not app_state.plan_text):
+        with st.spinner("検索条件を生成中..."):
+            # 検索条件生成のロジックを直接呼び出す
+            from core.agent import generate_query
+            st.session_state.app_state = generate_query(app_state)
+        st.rerun()
+
+    st.header("3. 検索条件の確認・編集")
     
     # キーワード
     app_state.search_query.keywords = st.text_area(
@@ -75,32 +98,28 @@ with col2:
     ).splitlines()
     
     # IPCコード
-    # ユーザーが編集できるようにtext_areaを再導入
-    current_ipc_codes_str = "\n".join(app_state.search_query.ipc_codes) # 変更
+    current_ipc_codes_str = "\n".join(app_state.search_query.ipc_codes)
     edited_ipc_codes_str = st.text_area(
         "IPCコード", 
         value=current_ipc_codes_str,
         height=150
     )
-    # 編集された文字列をIPCCodeオブジェクトのリストに変換
     new_ipc_codes = []
     for line in edited_ipc_codes_str.splitlines():
         line = line.strip()
-        if not line: # 空行はスキップ
+        if not line:
             continue
-        new_ipc_codes.append(line) # 変更
+        new_ipc_codes.append(line)
     app_state.search_query.ipc_codes = new_ipc_codes
-    print(f"DEBUG: app_state.search_query.ipc_codes after UI edit: {app_state.search_query.ipc_codes}")
 
     # 詳細条件
     with st.expander("詳細条件（任意）"):
         app_state.search_query.publication_date_from = st.text_input("公開日（From: YYYYMMDD）", value=app_state.search_query.publication_date_from or "")
         app_state.search_query.publication_date_to = st.text_input("公開日（To: YYYYMMDD）", value=app_state.search_query.publication_date_to or "")
-        # 検索件数上限の入力
         app_state.search_query.limit = st.number_input("検索件数の上限 (LIMIT)", min_value=1, max_value=1000, value=app_state.search_query.limit)
 
 # --- 検索実行と結果表示 --- 
-st.header("3. 検索実行")
+st.header("4. 検索実行")
 if st.button("検索開始", type="primary"):
     if not app_state.search_query.keywords and not app_state.search_query.ipc_codes:
         st.error("キーワードまたはIPCコードを少なくとも1つは設定してください。")
@@ -130,49 +149,78 @@ with col_sql:
 
 # 類似度分析の仕組み表示
 st.subheader("類似度分析の仕組み")
-with st.expander("類似度分析の詳細", expanded=False):
-    st.markdown("特許検索結果は、入力された技術内容との類似度に基づいてソートされます。")
-    st.markdown("**分析対象:** 特許文献のタイトル、要約、請求項（日本語・英語）")
-    st.markdown("**手順:**")
-    st.markdown("1. 入力された技術内容と各特許文献のテキストを、OpenAIのEmbeddingモデル `text-embedding-3-small` を利用してベクトル化します。")
-    st.markdown("2. ベクトル化された技術内容と各特許文献のベクトル間でコサイン類似度を計算します。")
-    st.markdown("3. 計算された類似度に基づいて、検索結果を降順にソートし、類似度の高い特許から表示します。")
+with st.expander("類似度分析の詳細と重み調整", expanded=False):
+    st.markdown("特許検索結果は、入力された**調査方針**と各文献の**タイトル・要約・請求項**との類似度に基づいてスコアリングされます。")
+    st.markdown("1. **Embedding化**: 調査方針と、各文献のセクション（タイトル等）をOpenAIの`text-embedding-3-small`でベクトル化します。")
+    st.markdown("2. **類似度計算**: 調査方針のベクトルと、各セクションのベクトルとのコサイン類似度をそれぞれ計算します（`sim_title`, `sim_abstract`, `sim_claims`）。")
+    st.markdown("3. **スコアリング**: 各類似度に重みを掛けて合計し、最終的なスコア（`score`）を算出します。スコアが高いほど、調査方針に合致していると判断されます。")
+    
+    st.markdown("**スコア計算式の重み調整:**")
+    weights = app_state.similarity_weights
+    w_title = st.slider("タイトル(title)の重み", 0.0, 1.0, weights.get('title', 0.4), 0.05)
+    w_abstract = st.slider("要約(abstract)の重み", 0.0, 1.0, weights.get('abstract', 0.4), 0.05)
+    w_claims = st.slider("請求項(claims)の重み", 0.0, 1.0, weights.get('claims', 0.2), 0.05)
+
+    # 合計が1になるように正規化するオプション（ユーザーに委ねる）
+    if st.checkbox("重みの合計を1に正規化する", value=True):
+        total_weight = w_title + w_abstract + w_claims
+        if total_weight > 0:
+            w_title /= total_weight
+            w_abstract /= total_weight
+            w_claims /= total_weight
+    
+    app_state.similarity_weights = {"title": w_title, "abstract": w_abstract, "claims": w_claims}
+    st.write(f"現在の重み: Title={w_title:.2f}, Abstract={w_abstract:.2f}, Claims={w_claims:.2f}")
 
 # 結果表示エリア
-st.header("4. 検索結果")
+st.header("5. 検索結果")
 if app_state.analyzed_results is not None and not app_state.analyzed_results.empty:
-    st.write(f"取得件数: {len(app_state.analyzed_results)}件") # 取得件数表示
+    st.write(f"取得件数: {len(app_state.analyzed_results)}件")
     
-    # 表示言語に応じてカラム名を変更
     display_df = app_state.analyzed_results.copy()
+    
+    # スコア関連のカラムをフォーマット
+    score_cols = ['score', 'sim_title', 'sim_abstract', 'sim_claims']
+    for col in score_cols:
+        if col in display_df.columns:
+            display_df[col] = display_df[col].map(lambda x: f"{x:.3f}")
+
     if app_state.display_language == "ja":
         display_df = display_df.rename(columns={
-            'title_ja': 'タイトル',
-            'abstract_ja': '要約',
-            'claims_ja': '請求項',
+            'title': 'タイトル',
+            'abstract': '要約',
+            'claims': '請求項',
             'assignee_harmonized': '出願人',
             'publication_date': '公開日',
             'ipc_codes': 'IPCコード',
-            'similarity': '類似度'
+            'score': 'スコア',
+            'sim_title': 'タイトル類似度',
+            'sim_abstract': '要約類似度',
+            'sim_claims': '請求項類似度'
         })
-        # 英語カラムを削除
-        display_df = display_df.drop(columns=['title_en', 'abstract_en', 'claims_en'], errors='ignore')
     else: # en
         display_df = display_df.rename(columns={
-            'title_en': 'Title',
-            'abstract_en': 'Abstract',
-            'claims_en': 'Claims',
+            'title': 'Title',
+            'abstract': 'Abstract',
+            'claims': 'Claims',
             'assignee_harmonized': 'Assignee',
             'publication_date': 'Publication Date',
             'ipc_codes': 'IPC Codes',
-            'similarity': 'Similarity'
+            'score': 'Score',
+            'sim_title': 'Title Similarity',
+            'sim_abstract': 'Abstract Similarity',
+            'sim_claims': 'Claims Similarity'
         })
-        # 日本語カラムを削除
-        display_df = display_df.drop(columns=['title_ja', 'abstract_ja', 'claims_ja'], errors='ignore')
+
+    # 表示するカラムを選択
+    display_columns = [
+        col for col in display_df.columns 
+        if col not in ['publication_number', 'select_for_summary'] # これらは後で使う
+    ]
 
     # 編集可能なデータフレームで要約対象を選択
     df_to_show = display_df.copy()
-    df_to_show["select_for_summary"] = False # 要約選択用のチェックボックスカラムを追加
+    df_to_show["select_for_summary"] = False
 
     edited_df = st.data_editor(
         df_to_show,
@@ -184,6 +232,7 @@ if app_state.analyzed_results is not None and not app_state.analyzed_results.emp
         },
         use_container_width=True,
         hide_index=True,
+        column_order=["select_for_summary"] + display_columns # チェックボックスを先頭に
     )
     
     selected_rows = edited_df[edited_df.select_for_summary]
