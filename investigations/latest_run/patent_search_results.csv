@@ -1,0 +1,2197 @@
+﻿publication_number,title,abstract,claims,assignee_harmonized,publication_date,ipc_codes,sim_title,sim_abstract,sim_claims,score
+US-2022253526-A1,Incremental updates to malware detection models,"A machine learning model is sequentially fine-tuned with new training data as the training data becomes available. By using a suitable mix of old and new data, and weighting samples in the training data by age, the model can be efficiently updated to maintain accuracy against a changing malware landscape without manual modifications of the network layers or the computational expense of full retraining.","What is claimed is: 
+     
+         1 . A computer program product for updating a previously-trained machine learning malware classification model with new samples, the computer program product comprising computer executable code embodied in a non-transitory computer-readable medium that, when executing on one or more computing devices, performs the steps of:
+ receiving new samples to be used to update a previously-trained machine learning malware classification model;   determining a number of the new samples to be selected for use in updating;   determining a number of past samples to be selected as a percentage of the number of the new samples to be selected for updating;   selecting new samples based on the determined number of new samples;   selecting past samples based on the determined number of past samples; and   updating the previously-trained model using the selected new samples and the selected past samples.   
+     
+     
+         2 . The computer program product of  claim 1 , wherein the percentage is a percentage is in a range from 80% to 120%. 
+     
+     
+         3 . A method for updating a trained model with new samples, the method comprising:
+ receiving new samples to be used to update a model;   determining a number of the new samples to be used for updating;   determining a number of past samples to select based on the number of the new samples to be used for updating;   selecting new samples based on the determined number of new samples;   selecting past samples based on the determined number of past samples; and   updating the trained model using the selected new samples and the selected past samples.   
+     
+     
+         4 . The method of  claim 3 , wherein updating the trained model comprises using machine learning techniques to train an existing model using the selected new samples and the selected past samples. 
+     
+     
+         5 . The method of  claim 3 , wherein the model is a malware classifier. 
+     
+     
+         6 . The method of  claim 3 , where in the model is a maliciousness classifier. 
+     
+     
+         7 . The method of  claim 3 , wherein the number of past samples is determined as a percentage or a multiple of the number of new samples to be used for updating. 
+     
+     
+         8 . The method of  claim 3 , wherein the number of past samples is determined based on a desired ratio of past samples and new samples. 
+     
+     
+         9 . The method of  claim 3 , wherein the method is performed periodically to update the trained model using recently collected samples as new samples. 
+     
+     
+         10 . The method of  claim 3 , wherein the past samples are selected randomly. 
+     
+     
+         11 . The method of  claim 3 , wherein the past samples are selected with weighting towards more recent samples. 
+     
+     
+         12 . The method of  claim 3 , wherein the number of new samples is determined by identifying a number of new samples to be used as test data. 
+     
+     
+         13 . The method of  claim 3 , wherein the number of new samples is determined by identifying a number of new samples to be used as training data. 
+     
+     
+         14 . A system for maintaining a trained model with new samples, the system comprising:
+ a sample repository for receiving new samples to be used to update the model;   a new sample number determination system for determining a number of the new samples to be used for updating and for determining a number of past samples to select based on the number of the new samples to be used for updating;   a sample selector for selecting new samples based on the determined number of new samples and for selecting past samples based on the determined number of past samples;   a training engine for updating the trained model using the selected new samples and the selected past samples; and   a security agent for using the updated trained model to detect malware.   
+     
+     
+         15 . The system of  claim 14 , wherein the new samples are updated periodically. 
+     
+     
+         16 . The system of  claim 14 , wherein the trained model is a malware classifier. 
+     
+     
+         17 . The system of  claim 14 , wherein the trained model is a deep learning neural network. 
+     
+     
+         18 . The system of  claim 14 , wherein the new sample number determination system determines the number of new samples by identifying a number of new samples to be used as training data. 
+     
+     
+         19 . The system of  claim 14 , wherein the new sample number determination system determines the number of past samples based on a percentage of the number of new samples. 
+     
+     
+         20 . The system of  claim 14 , wherein the past samples are selected randomly with weighting toward more recent samples.",SOPHOS LTD,20220811,['G06F21/55' 'G06F21/56' 'G06K9/62' 'G06N3/04'],0.26835851940364,0.34638736329845177,0.2895592706450728,0.30381020720985125
+CN-221095368-U,Equipment for improving water-repellent capacity of road structure,"The utility model relates to the technical field of road drainage, and discloses equipment for improving the drainage capacity of a road structure, which comprises a drainage road main body, wherein a drainage channel is formed in the top surface of the drainage road main body, a channel well cover is arranged in the drainage channel near the top, a circular fixing ring is fixedly arranged on the inner wall surface of the drainage channel, the upper end of a conical filter cylinder is large, the lower end of the conical filter cylinder is small, impurities entering the conical filter cylinder can be flushed from top to bottom under the action of water flow, then a waterproof motor is started to drive a crushing blade to rotate, the impurities in the lower end of the conical filter cylinder are crushed into small blocks through the rotation of the crushing blade, the small blocks of impurities are discharged into a collecting filter cylinder through a circular water permeable hole, at the moment, the small blocks of impurities are collected through the collecting filter cylinder, unified treatment is convenient for personnel in idle, and the small blocks of impurities are prevented from entering a sewage pipeline and polluting the environment through the sewage pipeline.",,CHINA RAILWAY 23 BUREAU GROUP NO 3 ENG CO LTD,20240607,"['E03F5/04' 'B01D29/35' 'B01D29/58' 'B02C18/12' 'E03F5/06' 'E03F5/14'
+ 'E03F7/00']",0.35774242301975523,0.3198850774260432,0.05481889403891735,0.2820147789861029
+US-2022327426-A1,Multipath mixing-based learning data acquisition apparatus and method,"The present disclosure provides a learning data acquisition apparatus and method for receiving, from each of a plurality of terminals, mixed data in which a plurality of pieces of learning data are mixed according to a mixing ratio, identifying the mixed data transmitted from each of the plurality of terminals according to an included label, and acquire re-mixed learning data for training a pre-stored learning model by re-mixing each identified label according to a re-mixing ratio configured in correspondence to the number of terminals having transmitted the mixed data, thereby enabling learning performance and security to be improved by re-mixing the mixed data transmitted from each of the plurality of terminals in a data mixing manner.","What is claimed is: 
+     
+         1 . A learning data acquisition apparatus, which receives mixed data in which a plurality of learning data are mixed according to a mixing ratio from each of a plurality of terminals, classifies the mixed data transmitted from each of the plurality of terminals according to an included label, and re-mixes each classified label according to a re-mixing ratio configured in correspondence to the number of terminals having transmitted the mixed data, thereby acquiring re-mixed learning data for training a pre-stored learning model. 
+     
+     
+         2 . The learning data acquisition apparatus according to  claim 1 ,
+ wherein each of the plurality of terminals acquires a plurality of sample data for training the learning model, acquires the plurality of learning data by labeling each of the acquired plurality of sample data with a label for classifying the sample data, and mixes the acquired plurality of learning data according to the mixing ratio, thereby acquiring the mixed data.   
+     
+     
+         3 . The learning data acquisition apparatus according to  claim 2 ,
+ wherein each of the plurality of terminals acquires the mixed data by a weighted sum ({tilde over (ϰ)}=λ 1 ϰ 1 +λ 2 ϰ 2 + . . . +λ n ϰ n ) of individual mixing ratios (λ 1 , λ 2 , . . . , λ n ) (wherein, the sum of the individual mixing ratios (λ 1 , λ 2 , . . . , λ n ) is 1 (λ 1 +λ 2 + . . . +λ n =1)) corresponding to each of a plurality of learning data (x 1 , x 2 , . . . , x n ).   
+     
+     
+         4 . The learning data acquisition apparatus according to  claim 3 ,
+ wherein the individual mixing ratios are weighted on each of the sample data (s 1 , s 2 , . . . , s n ) and labels (l 1 , l 2 , . . . , l n ) constituting the learning data (x 1 , x 2 , . . . , x n ).   
+     
+     
+         5 . The learning data acquisition apparatus according to  claim 4 ,
+ wherein the learning data acquisition apparatus re-mixes, for each label (l 1 , l 2 , . . . , l n ) of mixed data (transmitted from each of a plurality of terminals, while adjusting individual re-mixing ratios ({tilde over (λ)} 1 , {tilde over (λ)} 2 , . . . , {tilde over (λ)} m ) (wherein, the sum of the individual re-mixing ratios ({tilde over (λ)} 1 , {tilde over (λ)} 2 , . . . , {tilde over (λ)} m ) is 1), thereby acquiring a plurality of re-mixed learning data (x 1 ′, x 2 ′, . . . x n ′).   
+     
+     
+         6 . The learning data acquisition apparatus according to  claim 4 ,
+ wherein the learning data acquisition apparatus inputs, among re-mixed sample data (s 1 ′, s 2 ′, s n ′) and corresponding re-mixed labels (l 1 ′, l 2 ′, . . . l n ′) included in the re-mixed learning data (x 1 ′, x 2 ′, . . . x n ′), the re-mixed sample data (s 1 ′, s 2 ′, . . . s n ′) as an input value for training the learning model, and uses the re-mixed labels (l 1 ′, l 2 ′, . . . l n ′) as truth values for determining and backpropagating an error of the learning model.   
+     
+     
+         7 . A learning data acquisition method, comprising the steps of:
+ transmitting, by each of a plurality of terminals, mixed data in which a plurality of learning data are mixed according to a mixing ratio; and   classifying the mixed data transmitted from each of the plurality of terminals according to an included label, and re-mixing each classified label according to a re-mixing ratio configured in correspondence to the number of terminals having transmitted the mixed data, thereby acquiring re-mixed learning data for training a pre-stored learning model.   
+     
+     
+         8 . The learning data acquisition method according to  claim 7 ,
+ wherein the step of transmitting mixed data comprises the steps of:   acquiring a plurality of sample data for training the learning model;   acquiring the plurality of learning data by labeling each of the acquired plurality of sample data with a label for classifying the sample data; and   acquiring the mixed data by mixing the acquired plurality of learning data according to a mixing ratio.   
+     
+     
+         9 . The learning data acquisition method according to  claim 8 ,
+ wherein the step of acquiring the mixed data acquires the mixed data by a weighted sum ({tilde over (ϰ)}=λ 1 ϰ 1 +λ 2 ϰ 2 + . . . +λ n ϰ n ) of individual mixing ratios (λ 1 , λ 2 , . . . , λ n ) corresponding to each of a plurality of learning data (x 1 , x 2 , . . . , x n ).   
+     
+     
+         10 . The learning data acquisition method according to  claim 9 ,
+ wherein the individual mixing ratios are weighted on each of the sample data (s 1 , s 2 , . . . , s n ) and labels (l 1 , l 2 , . . . , l n ) constituting the learning data (x 1 , x 2 , . . . , x n ).   
+     
+     
+         11 . The learning data acquisition method according to  claim 10 ,
+ wherein the step of acquiring re-mixed learning data re-mixes, for each label (l 1 , l 2 , . . . , l n ) of mixed data ({tilde over (ϰ)} 1 , {tilde over (ϰ)} 2 , . . . , {tilde over (ϰ)} m ) transmitted from each of a plurality of terminals, while adjusting individual re-mixing ratios) ({tilde over (λ)} 1 , {tilde over (λ)} 2 , . . . , {tilde over (λ)} m ), thereby acquiring a plurality of re-mixed learning data (x 1 ′, . . . x n ′).   
+     
+     
+         12 . The learning data acquisition method according to  claim 10 ,
+ wherein the step of acquiring re-mixed learning data inputs, among re-mixed sample data (s 1 ′, s 2 ′, s n ′) and corresponding re-mixed labels (l 1 ′, l 2 ′, . . . l n ′) included in the re-mixed learning data (x 1 ′, x 2 ′, . . . x n ′), the re-mixed sample data (s 1 ′, s 2 ′, . . . s n ′) as an input value for training the learning model, and uses the re-mixed labels (l 1 ′, l 2 ′, . . . l n ′) as truth values for determining and backpropagating an error of the learning model.",UNIV YONSEI IACF,20221013,['G06N20/00'],0.3180806073303952,0.2540915778756239,0.24292611685787366,0.2774540974539824
+US-2022213636-A1,Laundry treating apparatus,"A clothing treatment apparatus includes a cabinet, and a water-containing assembly, a sprinkling assembly and an atomization generator that are arranged in the cabinet. The water-containing assembly includes a water tank and a plurality of delivery pipelines, the water tank is connected to the atomization generator through one of the delivery pipelines, and the atomization generator is configured to perform atomized washing on the clothing; the water tank is connected to the sprinkling assembly through the rest of the delivery pipelines, and the sprinkling assembly is configured to perform sprinkling washing on the clothing.","What is claimed is: 
+     
+         1 . A clothing treatment apparatus, comprising a cabinet, and a water-containing assembly, a sprinkling assembly and an atomization generator that are arranged in the cabinet;
+ wherein the water-containing assembly comprises a water tank and a plurality of delivery pipelines, the water tank is connected to the atomization generator through one of the delivery pipelines, and the atomization generator is configured to perform atomized washing on the clothing; the water tank is connected to the sprinkling assembly through the rest of the delivery pipelines, and the sprinkling assembly is configured to perform sprinkling washing on the clothing.   
+     
+     
+         2 . The clothing treatment apparatus according to  claim 1 , wherein the water tank comprises a first water-containing member and a second water-containing member that communicate with each other, and the plurality of delivery pipelines comprise a first delivery pipeline, a second delivery pipeline, and a third delivery pipeline; and
+ an outlet of the first water-containing member is connected to the sprinkling assembly through the first delivery pipeline, a first outlet of the second water-containing member is connected to the atomization generator through the second delivery pipeline, and a second outlet of the second water-containing member is connected to the sprinkling assembly through the third delivery pipeline.   
+     
+     
+         3 . The clothing treatment apparatus according to  claim 2 , further comprising an outer cylinder arranged in the cabinet and an inner cylinder rotatably accommodated in the outer cylinder, wherein the cabinet is provided with a clothing inlet, and a window gasket is arranged between the clothing inlet and the outer cylinder; and
+ the sprinkling assembly comprises a first sprinkling head arranged on the window gasket, the outlet of the first water-containing member is connected to the first sprinkling head through the first delivery pipeline, and the first sprinkling head is configured to spray water into the inner cylinder.   
+     
+     
+         4 . The clothing treatment apparatus according to  claim 3 , further comprising a door pivotally connected to the cabinet, the door being provided with a viewing window;
+ wherein the sprinkling assembly further comprises a second sprinkling head arranged on the window gasket, the second outlet of the second water-containing member is connected to the second sprinkling head through the third delivery pipeline, and the second sprinkling head is configured to spray water onto the viewing window.   
+     
+     
+         5 . The clothing treatment apparatus according to  claim 2 , further comprising a water supply valve, a water delivery channel and a one-way check structure that are arranged in the cabinet;
+ wherein the water supply valve is connected to a water inlet end of the water delivery channel, and a water outlet end of the water delivery channel is connected to the atomization generator through the first water-containing member and the second water-containing member; the one-way check structure is connected to the water delivery channel and the first water-containing member respectively, and the one-way check structure is arranged to be isolated from the atmosphere when the water supply valve is opened and to communicate with the atmosphere when the water supply valve is closed.   
+     
+     
+         6 . The clothing treatment apparatus according to  claim 5 , wherein the one-way check structure is a one-way check valve. 
+     
+     
+         7 . The clothing treatment apparatus according to  claim 3 , wherein the first water-containing member is provided therein with a water diverting and blocking rib, and the water diverting and blocking rib divides an internal space of the first water-containing member into a first chamber and a second chamber; an inlet of the first water-containing member is arranged in the first chamber, and the outlet of the first water-containing member is arranged in the second chamber; and
+ the water diverting and blocking rib is arranged such that: when the water begins to be injected into the water tank, the water diverting and blocking rib enables all the water flowing through the first chamber to flow into the second water-containing member; and when the second water-containing member is fully filled with water, the water flowing through the first chamber overflows the water diverting and blocking rib, flows into the second chamber, and flows to the first sprinkling head through the first delivery pipeline.   
+     
+     
+         8 . The clothing treatment apparatus according to  claim 7 , wherein a height of a bottom of the first water-containing member is larger than a height of a bottom of the second water-containing member. 
+     
+     
+         9 . The clothing treatment apparatus according to  claim 4 , wherein the water tank further comprises a siphon member, which is connected to the second sprinkling head through the third delivery pipeline, and which is configured to suck out water in the second water-containing member by siphoning. 
+     
+     
+         10 . The clothing treatment apparatus according to  claim 9 , wherein the water-containing assembly further comprises a cover arranged above the water tank; and
+ the siphon member comprises a siphon cap arranged on the cover and a siphon tube arranged in the second water-containing member, and the siphon tube communicates with the second outlet of the second water-containing member; when the cover is closed with the water tank, the siphon cap can be sleeved over the siphon tube, a siphon channel is formed between the siphon cap and the siphon tube, and the water in the second water-containing member can flow to the second sprinkling head through the siphon channel and the third delivery pipeline.","QINGDAO HAIER DRUM WASHING MACHINE CO LTD,HAIER SMART HOME CO LTD",20220707,['D06F23/02' 'D06F39/00' 'D06F37/20' 'D06F39/08'],0.29214234497163183,0.2684520063503197,0.2657955544522804,0.2773968514192367
+US-2022311933-A1,Controller and method for providing an operational setting of an imaging device,"A controller for providing an operational setting of an imaging device is configured to provide a user with a preferred operational setting for acquiring an image. The controller is also configured to receive a user input and generate a response information based on the user input, the response information indicating whether or not the image generated by the imaging device is accepted by the user. The controller is further configured to update the preferred operational setting using a machine learning algorithm based on the response information.","1 . A controller for providing an operational setting of an imaging device, the controller being configured to:
+ provide a user with a preferred operational setting for acquiring an image;   receive a user input and generate a response information based on the user input, the response information indicating whether or not the image generated by the imaging device is accepted by the user; and   update the preferred operational setting using a machine learning algorithm based on the response information.   
+     
+     
+         2 . The controller according to  claim 1 , being further configured to:
+ conclude that the image is a good image based on the response information indicating that the image is not discarded by the user,   conclude that the image is not a good image based on the response information indicating that the image is discarded by the user, and   correspondingly feed the machine learning algorithm with an information indicating whether or not the image was concluded to be a good image.   
+     
+     
+         3 . The controller according to  claim 1 , being further configured to update the preferred operational setting further based on the operational setting used for acquiring the image. 
+     
+     
+         4 . The controller according to  claim 3 , being further configured to:
+ update the preferred operational setting so as to reinforce the operational setting used for acquiring the image in the case that the image was concluded to be a good image, and/or   update the preferred operation setting so as to attenuate the operational setting used for acquiring the image in the case that the image was concluded not to be a good image.   
+     
+     
+         5 . The controller according to  claim 1 , being further configured to generate the response information indicating that the image is discarded in a case that, after acquiring the image, a setting parameter of a first group of parameters of the operational setting is changed by the user compared to the previous operational setting with which the image was acquired. 
+     
+     
+         6 . The controller according to  claim 5 , wherein the first group of parameters includes at least of one of a histogram setting, exposure time setting, gain setting, contrast setting, illumination light setting, objective setting, position setting, time setting, repetition setting, binning setting, high dynamic range (HDR) setting, digital fusion setting, color/black-and-white setting, automatic exposure ON/OFF setting, and confocal microscopy setting. 
+     
+     
+         7 . The controller according to  claim 6 , being further configured to generate the response information indicating that the image is not discarded in a case that, after acquiring the image, a setting parameter of a second group of parameters of the operational setting is changed by the user compared to the previous operational setting with which the image was acquired. 
+     
+     
+         8 . The controller according to  claim 7 , wherein the second group of parameters includes at least one of a zoom setting and a stage setting. 
+     
+     
+         9 . The controller according to  claim 1 , being further configured to generate the response information indicating that the image is not discarded in a case that the image is stored or further processed. 
+     
+     
+         10 . An imaging system, comprising an imaging device and the controller for providing the operational setting of the imaging device according to  claim 1 . 
+     
+     
+         11 . The imaging system according to  claim 10 , wherein the controller is further configured to control the imaging device automatically based on the updated preferred operational setting. 
+     
+     
+         12 . The imaging system according to  claim 11 , wherein the imaging system is a microscope system. 
+     
+     
+         13 . A method for providing an operational setting of an imaging device, the method comprising:
+ providing a user with a preferred operational setting for acquiring an image;   receiving a user input and generating a response information based on the user input, the response information indicating whether or not the image generated by the imaging device is discarded by the user; and   updating the preferred operational setting using a machine learning algorithm based on the response information.   
+     
+     
+         14 . A tangible, non-transitory computer-readable medium having instructions thereon which, upon being executed by one or more processors, causes execution of the method according to  claim 13 .",LEICA MICROSYSTEMS,20220929,['H04N5/232' 'G02B21/36'],0.21587404589664977,0.3084988969655831,0.2936794783192194,0.26848507280873707
+US-2022276792-A1,Adaptive Memory System,"Described apparatuses and methods control a voltage or a temperature of a memory domain to balance memory performance and energy use. In some aspects, an adaptive controller monitors memory performance metrics of a host processor that correspond to commands made to a memory domain of a memory system, including one operating at cryogenic temperatures. Based on the memory performance metrics, the adaptive controller can determine memory performance demand of the host processor, such as latency demand or bandwidth demand, for the memory domain. The adaptive controller may alter, using the determined performance demand, a voltage or a temperature of the memory domain to enable memory access performance that is tailored to meet the demand of the host processor. By so doing, the adaptive controller can manage various settings of the memory domain to address short- or long-term changes in memory performance demand.","1 - 20 . (canceled) 
+     
+     
+         21 . An apparatus comprising:
+ a memory array;   at least one interface configured to couple to an interconnect of a host system and receive commands issued to the memory array via the interconnect; and   an adaptive controller configured to couple to the host system via the at least one interface, the adaptive controller configured to:
+ determine, during a first duration of time, one or more memory performance metrics regarding the commands issued by the host to a memory domain of the memory array; 
+ determine, for a second duration of time, a memory performance demand of the memory domain based on the one or more memory performance metrics; and 
+ alter, before or during the second duration of time, a voltage setting or a temperature setting of the memory domain based on the memory performance demand of the memory domain. 
+   
+     
+     
+         22 . The apparatus of  claim 21 , wherein the adaptive controller is configured to alter the voltage setting or the temperature setting of the memory domain before a start of the second duration of time. 
+     
+     
+         23 . The apparatus of  claim 21 , wherein the adaptive controller is further configured to:
+ compare the memory performance demand of the memory domain to a threshold of the memory domain; and
+ increase the voltage setting or decrease the temperature setting of the memory domain in response to the memory performance demand exceeding the threshold of the memory domain; or 
+ decrease the voltage setting or increase the temperature setting of the memory domain in response to the memory performance demand not exceeding the threshold of the memory domain. 
+   
+     
+     
+         24 . The apparatus of  claim 23 , wherein the threshold is a first threshold of the memory domain, the memory performance demand exceeds the first threshold, and the adaptive controller is further configured to:
+ compare the memory performance demand of the memory domain to a second threshold of the memory domain; and
+ increase the voltage setting of the memory domain in response to the memory performance demand exceeding the second threshold of the memory domain; or 
+ decrease the temperature setting of the memory domain in response to the memory performance demand not exceeding the second threshold of the memory domain. 
+   
+     
+     
+         25 . The apparatus of  claim 23 , wherein the memory performance demand does not exceed the threshold, and the adaptive controller is further configured to:
+ compare a temperature of the memory domain to a temperature threshold of the memory domain; and
+ increase the temperature setting of the memory domain in response to the temperature of the memory domain not exceeding the temperature threshold of the memory domain; or 
+ decrease the voltage setting of the memory domain in response to the temperature of the memory domain exceeding the temperature threshold of the memory domain. 
+   
+     
+     
+         26 . The apparatus of  claim 21 , wherein the first duration of time is first temperature time interval, the second duration of time is a second temperature time interval, and the adaptive controller is configured to:
+ alter, before or during the second temperature time interval, the temperature setting of the memory domain based on the memory performance demand of the memory domain for the second temperature time interval.   
+     
+     
+         27 . The apparatus of  claim 26 , wherein the adaptive controller is further configured to:
+ determine, during a first voltage time interval, one or more other memory performance metrics regarding the commands issued by the host to a memory domain of the memory array;   determine, for a second voltage time interval, another memory performance demand of the memory domain based on the one or more other memory performance metrics; and   alter, before or during the second voltage time interval, the voltage setting of the memory domain based on the other memory performance demand of the memory domain for the second voltage time interval.   
+     
+     
+         28 . The apparatus of  claim 27 , wherein:
+ the first temperature time interval is different from the first voltage time interval; or   the second temperature time interval is different from the second voltage time interval.   
+     
+     
+         29 . The apparatus of  claim 21 , wherein the adaptive controller is further configured to determine the first duration of time or the second duration of time based on:
+ an amount of time consumed to transition a voltage of the memory domain from a first voltage to a second voltage; or   an amount of time for consumed to transition a temperature of the memory domain from a first temperature to a second temperature.   
+     
+     
+         30 . The apparatus of  claim 21 , wherein to determine the memory performance demand the adaptive controller is further configured to predict the memory performance demand based on the one or more memory performance metrics using one of:
+ machine learning;   a moving average algorithm; or   a Markov prediction circuit.   
+     
+     
+         31 . The apparatus of  claim 21 , wherein the adaptive controller is further configured to:
+ determine an error-correcting code (ECC) scheme or an ECC tier for data stored by the memory domain based on the voltage setting or the temperature setting that is altered; and   apply the ECC scheme or the ECC tier to the data stored by the memory domain.   
+     
+     
+         32 . The apparatus of  claim 21 , wherein:
+ the one or more memory performance metrics received from the host system comprise:
+ an amount of time or a number of cycles for which one or more memory read instructions associated with the memory domain are stalled in a reorder buffer; or 
+ a misses per kilo instruction (MPKI) rate for the one or more memory read instructions associated with the memory domain; and 
+   the memory performance demand that is determined for the memory domain comprises:
+ a predicted amount of time or a predicted number of stall cycles for which subsequent memory read instructions associated with the memory domain will stall in the reorder buffer; or 
+ a predicted MPKI rate for the subsequent memory read instructions associated with the memory domain. 
+   
+     
+     
+         33 . An apparatus comprising:
+ a memory array including one or more memory domains;   a host coupled to the memory array, the host including one or more performance counters that indicate a respective memory performance metric of the one or more memory domains; and   an adaptive controller comprising an interface configured to access the one or more performance counters of the processor, the adaptive controlled configured to:
+ monitor, during a first duration of time, the respective memory performance metric indicated by the one or more performance counters that corresponds to a memory domain of the one or more memory domains; 
+ determine, for a second duration of time, a memory performance demand of the memory domain based on the respective performance metric; and 
+ alter, before or during the second duration of time, a voltage setting or a temperature setting of the memory domain based on the memory performance demand of the memory domain. 
+   
+     
+     
+         34 . The apparatus of  claim 33 , wherein the adaptive controller is configured to alter the voltage setting or the temperature setting of the memory domain before a start of the second duration of time. 
+     
+     
+         35 . The apparatus of  claim 33 , further comprising an interconnect that couples the host to the memory array, and wherein:
+ the interface of the adaptive controller comprises a first interface;   the adaptive controller further comprises a second interface to the interconnect; and   the adaptive controller is further configured to:
+ monitor, via the second interface, address information of commands issued by the host to the one or more memory domains of memory array through the interconnect; and 
+ associate, based on the address information, the respective memory performance metric with the memory domain to which the respective memory performance metric corresponds. 
+   
+     
+     
+         36 . The apparatus of  claim 33 , wherein the adaptive controller is further configured to:
+ compare the memory performance demand of the memory domain to a threshold of the memory domain; and
+ increase the voltage setting or decrease the temperature setting of the memory domain in response to the memory performance demand exceeding the threshold of the memory domain; or 
+ decrease the voltage setting or increase the temperature setting of the memory domain in response to the memory performance demand not exceeding the threshold of the memory domain. 
+   
+     
+     
+         37 . The apparatus of  claim 33 , wherein the first duration of time is first temperature time interval, the second duration of time is a second temperature time interval, and the adaptive controller is configured to:
+ alter, before or during the second temperature time interval, the temperature setting of the memory domain based on the memory performance demand of the memory domain for the second temperature time interval.   
+     
+     
+         38 . The apparatus of  claim 37 , wherein the adaptive controller is further configured to:
+ determine, during a first voltage time interval, one or more other memory performance metrics regarding the commands issued by the host to a memory domain of the memory array;   determine, for a second voltage time interval, another memory performance demand of the memory domain based on the one or more other memory performance metrics; and   alter, before or during the second voltage time interval, the voltage setting of the memory domain based on the other memory performance demand of the memory domain for the second voltage time interval.   
+     
+     
+         39 . The apparatus of  claim 38 , wherein:
+ the first temperature time interval is different from the first voltage time interval; or   the second temperature time interval is different from the second voltage time interval.   
+     
+     
+         40 . The apparatus of  claim 33 , wherein the adaptive controller is further configured to determine the first duration of time or the second duration of time based on:
+ an amount of time consumed to transition a voltage of the memory domain from a first voltage to a second voltage; or   an amount of time for consumed to transition a temperature of the memory domain from a first temperature to a second temperature.   
+     
+     
+         41 . The apparatus of  claim 33 , wherein to determine the memory performance demand the adaptive controller is further configured to predict the memory performance demand based on the one or more memory performance metrics using one of:
+ machine learning;   a moving average algorithm; or   a Markov prediction circuit.   
+     
+     
+         42 . The apparatus of  claim 33 , wherein the adaptive controller is further configured to:
+ determine an error-correcting code (ECC) scheme or an ECC tier for data stored by the memory domain based on the voltage setting or the temperature setting that is altered; and   apply the ECC scheme or the ECC tier to the data stored by the memory domain.   
+     
+     
+         43 . The apparatus of  claim 33 , wherein the interconnect that couples the host to the memory array comprises:
+ a bus-based memory interconnect; or   a serializer/deserializer-based (SerDes-based) memory interconnect.   
+     
+     
+         44 . The apparatus of  claim 33 , wherein the one or more memory performance metrics received from the host system comprise:
+ an amount of time or a number of cycles for which one or more memory read instructions associated with the memory domain are stalled in a reorder buffer; or   a misses per kilo instruction (MPKI) rate for the one or more memory read instructions associated with the memory domain; and   the memory performance demand that is determined for the memory domain comprises:   a predicted amount of time or a predicted number of stall cycles for which subsequent memory read instructions associated with the memory domain will stall in the reorder buffer; or   a predicted MPKI rate for the subsequent memory read instructions associated with the memory domain.   
+     
+     
+         45 . A method comprising:
+ receiving, during a first duration of time, one or more memory performance metrics regarding commands issued by a host to a memory domain of a memory array coupled to the host;   determining, for a second duration of time, a memory performance demand of the memory domain based on the one or more memory performance metrics; and   altering, before or during the duration of time, a voltage setting or a temperature setting of the memory domain based on the memory performance demand of the memory domain.   
+     
+     
+         46 . The method of  claim 45 , wherein the method comprises altering the voltage setting or the temperature setting of the memory domain before a start of the second duration of time. 
+     
+     
+         47 . The method of  claim 45 , further comprising:
+ comparing the memory performance demand of the memory domain to a threshold of the memory domain; and
+ increasing the voltage setting or decreasing the temperature setting of the memory domain in response to the memory performance demand exceeding the threshold of the memory domain; or 
+ decreasing the voltage setting or increasing the temperature setting of the memory domain in response to the memory performance demand not exceeding the threshold of the memory domain. 
+   
+     
+     
+         48 . The method of  claim 47 , wherein the threshold is a first threshold of the memory domain, the memory performance demand exceeds the first threshold, and the method further comprises:
+ comparing the memory performance demand of the memory domain to a second threshold of the memory domain; and
+ increasing the voltage setting of the memory domain in response to the memory performance demand exceeding the second threshold of the memory domain; or 
+ decreasing the temperature setting of the memory domain in response to the memory performance demand not exceeding the second threshold of the memory domain. 
+   
+     
+     
+         49 . The method of  claim 47 , wherein the memory performance demand does not exceed the threshold, and the method further comprises:
+ comparing a temperature of the memory domain to a temperature threshold of the memory domain; and
+ increasing the temperature setting of the memory domain in response to the temperature of the memory domain not exceeding the temperature threshold of the memory domain; or 
+ decreasing the voltage setting of the memory domain in response to the temperature of the memory domain exceeding the temperature threshold of the memory domain. 
+   
+     
+     
+         50 . The method of  claim 45 , wherein the first duration of time is first temperature time interval, the second duration of time is a second temperature time interval, and the method comprises:
+ altering, before or during the second temperature time interval, the temperature setting of the memory domain based on the memory performance demand of the memory domain for the second temperature time interval.   
+     
+     
+         51 . The method of  claim 50 , further comprising:
+ determining, during a first voltage time interval, one or more other memory performance metrics regarding the commands issued by the host to a memory domain of the memory array;   determining, for a second voltage time interval, another memory performance demand of the memory domain based on the one or more other memory performance metrics; and   altering, before or during the second voltage time interval, the voltage setting of the memory domain based on the other memory performance demand of the memory domain for the second voltage time interval.   
+     
+     
+         52 . The method of  claim 51 , wherein:
+ the first temperature time interval is different from the first voltage time interval; or   the second temperature time interval is different from the second voltage time interval.   
+     
+     
+         53 . The method of  claim 45 , further comprising determining the first duration of time or the second duration of time based on:
+ an amount of time consumed to transition a voltage of the memory domain from a first voltage to a second voltage; or   an amount of time for consumed to transition a temperature of the memory domain from a first temperature to a second temperature.   
+     
+     
+         54 . The method of  claim 45 , further comprising predicting the memory performance demand based on the one or more memory performance metrics using one of:
+ machine learning;   a moving average algorithm; or   a Markov prediction circuit.   
+     
+     
+         55 . The method of  claim 45 , further comprising:
+ determining an error-correcting code (ECC) scheme or an ECC tier for data stored by the memory domain based on the voltage setting or the temperature setting that is altered; and   applying the ECC scheme or the ECC tier to the data stored by the memory domain.   
+     
+     
+         56 . The method of  claim 45 , wherein the one or more memory performance metrics received from the host system comprise:
+ an amount of time or a number of cycles for which one or more memory read instructions associated with the memory domain are stalled in a reorder buffer; or   a misses per kilo instruction (MPKI) rate for the one or more memory read instructions associated with the memory domain; and   the memory performance demand that is determined for the memory domain comprises:   a predicted amount of time or a predicted number of stall cycles for which subsequent memory read instructions associated with the memory domain will stall in the reorder buffer; or   a predicted MPKI rate for the subsequent memory read instructions associated with the memory domain.   alter, before or during the second duration of time, a voltage setting or a temperature setting of the memory domain based on the memory performance demand of the memory domain.   
+     
+     
+         57 . An apparatus comprising:
+ a memory array including one or more memory domains;   a host coupled to the memory array, the host including one or more programs configured for quantum processing;   a control processor coupled to the memory array, the control processor including a quantum execution unit configured to manage execution of the one or more programs and one or more performance counters that indicate a respective memory performance metric of the one or more memory domains;   a quantum processing substrate coupled to the quantum execution unit of the control processor, the quantum processing substrate configured to execute the one or more programs; and   an adaptive controller comprising an interface configured to access the one or more performance counters of the control processor, the adaptive controlled configured to:
+ determine, via the one or more performance counters and for a first duration of time, of the control processor, the respective memory performance metric that corresponds to a memory domain of the one or more memory domains; 
+ determine, for a second duration of time, a memory performance demand of the memory domain based on the respective performance memory of the memory domain; and 
+ alter, before or during the second duration of time, a voltage setting or a temperature setting of the memory domain based on the memory performance demand of the memory domain. 
+   
+     
+     
+         58 . The apparatus of  claim 57 , wherein the adaptive controller is configured to alter the voltage setting or the temperature setting of the memory domain before a start of the second duration of time. 
+     
+     
+         59 . The apparatus of  claim 57 , wherein the adaptive controller is further configured to:
+ compare the memory performance demand of the memory domain to a threshold of the memory domain; and
+ increase the voltage setting or decrease the temperature setting of the memory domain in response to the memory performance demand exceeding the threshold of the memory domain; or 
+ decrease the voltage setting or increase the temperature setting of the memory domain in response to the memory performance demand not exceeding the threshold of the memory domain. 
+   
+     
+     
+         60 . The apparatus of  claim 57 , wherein the first duration of time is first temperature time interval, the second duration of time is a second temperature time interval, and the adaptive controller is configured to:
+ alter, before or during the second temperature time interval, the temperature setting of the memory domain based on the memory performance demand of the memory domain for the second temperature time interval.   
+     
+     
+         61 . The apparatus of  claim 60 , wherein the adaptive controller is further configured to:
+ determine, during a first voltage time interval, one or more other memory performance metrics regarding the commands issued by the host to a memory domain of the memory array;   determine, for a second voltage time interval, another memory performance demand of the memory domain based on the one or more other memory performance metrics; and   alter, before or during the second voltage time interval, the voltage setting of the memory domain based on the other memory performance demand of the memory domain for the second voltage time interval.   
+     
+     
+         62 . The apparatus of  claim 60 , wherein:
+ the first temperature time interval is different from the first voltage time interval; or   the second temperature time interval is different from the second voltage time interval.   
+     
+     
+         63 . The apparatus of  claim 57 , wherein the adaptive controller is further configured to determine the first duration of time or the second duration of time based on:
+ an amount of time consumed to transition a voltage of the memory domain from a first voltage to a second voltage; or   an amount of time for consumed to transition a temperature of the memory domain from a first temperature to a second temperature.   
+     
+     
+         64 . The apparatus of  claim 57 , wherein the adaptive controller is further configured to:
+ determine an error-correcting code (ECC) scheme or an ECC tier for data stored by the memory domain based on the voltage setting or the temperature setting that is altered; and   apply the ECC scheme or the ECC tier to the data stored by the memory domain.   
+     
+     
+         65 . The apparatus of  claim 57 , wherein:
+ the one or more memory performance metrics received from the host system comprise:
+ an amount of time or a number of cycles for which one or more memory read instructions associated with the memory domain are stalled in a reorder buffer; or 
+ a misses per kilo instruction (MPKI) rate for the one or more memory read instructions associated with the memory domain; and 
+   the memory performance demand that is determined for the memory domain comprises:
+ a predicted amount of time or a predicted number of stall cycles for which subsequent memory read instructions associated with the memory domain will stall in the reorder buffer; or 
+ a predicted MPKI rate for the subsequent memory read instructions associated with the memory domain.",MICRON TECHNOLOGY INC,20220901,['G06F3/06'],0.24224042952844085,0.27122545373908247,0.2949063045492357,0.2643676142168565
+US-2022327584-A1,Machine-Learning Driven Pricing Guidance,"A data processing system for machine-learning driven price guidance implements obtaining location information indicative of a location associated with a user; obtaining prescription information for a first prescription and first cost prescription; obtaining, from one or more pharmacy benefits managers, prescription cost information for a prescription from a plurality of pharmacies; analyzing the prescription cost information, the location associated with the user, and the prescription information using a machine learning model to obtain a prescription cost information prediction indicating that a first subset of the plurality of pharmacies provide the prescription at a second prescription cost lower than the first prescription cost; providing the prescription cost information prediction to a pharmacy recommendation unit as an input; generating a prescription savings opportunity report that presents the prescription cost information; and causing a user interface of a display of a computing device to present the prescription savings opportunity report.","1 . A data processing system comprising:
+ a processor; and   a machine-readable storage medium storing executable instructions that, when executed, cause the processor to perform operations comprising:
+ obtaining policy coverage information for one or more insurance policies associated with a user; 
+ obtaining location information indicative of a location associated with the user; 
+ obtaining an electronic copy of prescription information for a first prescription that has been prescribed to the user, wherein the prescription information includes a first prescription cost associated with the first prescription; 
+ converting the prescription information from a first format to a second format, wherein the second format is associated with a standard schema for processing prescription information and prescription cost information; 
+ converting the prescription cost information from a third format to a fourth format, wherein the fourth format is associated the standard schema; 
+ selecting one or more pharmacy benefits managers from which to obtain the prescription cost information based on the policy coverage information; 
+ obtaining, from the one or more pharmacy benefits managers, prescription cost information for a prescription from a plurality of pharmacies; 
+ providing the prescription cost information, the location associated with the user, and the prescription information to a machine learning model as an input; 
+ analyzing the prescription cost information, the location associated with the user, the policy coverage information, and the prescription information using the machine learning model to obtain a prescription cost information prediction, the machine learning model being trained using training data formatted according to the standard schema to output prescription cost information predictions, wherein the prediction indicates that a first subset of the plurality of pharmacies provide the prescription at a second prescription cost lower than the first prescription cost; 
+ providing the prescription cost information prediction output by the machine learning model to a pharmacy recommendation unit as an input; 
+ generating, using the pharmacy recommendation unit, a prescription savings opportunity report that presents the prescription cost information; and 
+ causing a user interface of a display of a computing device associated with the user to present the prescription savings opportunity report. 
+   
+     
+     
+         2 . The data processing system of  claim 1 , wherein the prescription information includes a plurality of prescriptions including at least one second prescription, and wherein obtaining the prescription cost information includes obtaining the prescription cost information for the at least one second prescription. 
+     
+     
+         3 . The data processing system of  claim 2 , wherein the machine learning model is configured to group prescriptions into bundles of one or more prescriptions, and wherein the prescription cost information associates the bundles of one or more prescriptions with a bundled prescription cost for each respective pharmacy of the first subset of the plurality of pharmacies. 
+     
+     
+         4 . (canceled) 
+     
+     
+         5 . The data processing system of  claim 2 , wherein the prescription opportunity report includes a map that displays a location of each pharmacy of the first subset of the plurality of pharmacies. 
+     
+     
+         6 . The data processing system of  claim 2 , wherein the prescription opportunity report provides guidance for switching the first prescription to a selected pharmacy from the first subset of the plurality of pharmacies. 
+     
+     
+         7 . The data processing system of  claim 1 , wherein the machine-readable storage medium includes instructions configured to cause the processor to perform operations of:
+ obtaining electronic copies of one or more insurance policies associated with a user;   analyzing the electronic copies of the one or more insurance policies to generate the policy coverage information for each of the one or more insurance policies.   
+     
+     
+         8 . A method implemented in a data processing system for machine-learning driven price guidance, the method comprising:
+ obtaining policy coverage information for one or more insurance policies associated with a user;   obtaining location information indicative of a location associated with the user;   obtaining an electronic copy of prescription information for a first prescription that has been prescribed to the user, wherein the prescription information includes a first prescription cost associated with the first prescription;   converting the prescription information from a first format to a second format, wherein the second format is associated with a standard schema for processing prescription information and prescription cost information;   converting the prescription cost information from a third format to a fourth format, wherein the fourth format is associated the standard schema;   selecting one or more pharmacy benefits managers from which to obtain the prescription cost information based on the policy coverage information;   obtaining, from the one or more pharmacy benefits managers, prescription cost information for a prescription from a plurality of pharmacies;   providing the prescription cost information, the location associated with the user, and the prescription information to a machine learning model as an input;   analyzing the prescription cost information, the location associated with the user, the policy coverage information, and the prescription information using the machine learning model to obtain a prescription cost information prediction, the machine learning model being trained using training data formatted according to the standard schema to output prescription cost information predictions, wherein the prediction indicates that a first subset of the plurality of pharmacies provide the prescription at a second prescription cost lower than the first prescription cost;   providing the prescription cost information prediction output by the machine learning model to a pharmacy recommendation unit as an input;   generating, using the pharmacy recommendation unit, a prescription savings opportunity report that presents the prescription cost information; and   causing a user interface of a display of a computing device associated with the user to present the prescription savings opportunity report.   
+     
+     
+         9 . The method of  claim 8 , wherein the prescription information includes a plurality of prescriptions including at least one second prescription, and wherein obtaining the prescription cost information includes obtaining the prescription cost information for the at least one second prescription. 
+     
+     
+         10 . The method of  claim 9 , wherein the machine learning model is configured to group prescriptions into bundles of one or more prescriptions, and wherein the prescription cost information associates the bundles of one or more prescriptions with a bundled prescription cost for each respective pharmacy of the first subset of the plurality of pharmacies. 
+     
+     
+         11 . The method of  claim 9 , wherein prior to analyzing the prescription cost information, the location associated with the user, and the prescription information:
+ converting the prescription information from a first format to a second format, wherein the second format is associated with a standard schema for processing prescription information and prescription cost information; and   converting the prescription cost information from a third format to a fourth format, wherein the fourth format is associated the standard schema.   
+     
+     
+         12 . The method of  claim 9 , wherein causing the user interface of a display of a computing device associated with the user to present the prescription savings opportunity report further comprises:
+ causing the user interface of the display of the computing device to present a map that displays a location of each pharmacy of the first subset of the plurality of pharmacies.   
+     
+     
+         13 . The method of  claim 9 , wherein the prescription opportunity report provides guidance for switching the first prescription to a selected pharmacy from the first subset of the plurality of pharmacies. 
+     
+     
+         14 . The method of  claim 8 , further comprising:
+ obtaining electronic copies of a plurality of insurance policies associated with a user;   analyzing the electronic copies of the plurality of insurance policies to generate policy coverage information for each of the insurance policies; and   selecting the one or more pharmacy benefits manager from which to obtain the prescription cost information based on the policy coverage information.   
+     
+     
+         15 . A machine-readable medium on which are stored instructions that, when executed, cause a processor of a programmable device to perform operations of:
+ obtaining policy coverage information for one or more insurance policies associated with a user;   obtaining location information indicative of a location associated with the user;   obtaining an electronic copy of prescription information for a first prescription that has been prescribed to the user, wherein the prescription information includes a first prescription cost associated with the first prescription;   converting the prescription information from a first format to a second format, wherein the second format is associated with a standard schema for processing prescription information and prescription cost information;   converting the prescription cost information from a third format to a fourth format, wherein the fourth format is associated the standard schema;   selecting one or more pharmacy benefits managers from which to obtain the prescription cost information based on the policy coverage information;   obtaining, from the one or more pharmacy benefits managers, prescription cost information for a prescription from a plurality of pharmacies;   providing the prescription cost information, the location associated with the user, and the prescription information to a machine learning model as an input;   analyzing the prescription cost information, the location associated with the user, the policy coverage information, and the prescription information using the machine learning model to obtain a prescription cost information prediction, the machine learning model being trained using training data formatted according to the standard schema to output prescription cost information predictions, wherein the prediction indicates that a first subset of the plurality of pharmacies provide the prescription at a second prescription cost lower than the first prescription cost;   providing the prescription cost information prediction output by the machine learning model to a pharmacy recommendation unit as an input;   generating, using the pharmacy recommendation unit, a prescription savings opportunity report that presents the prescription cost information; and   causing a user interface of a display of a computing device associated with the user to present the prescription savings opportunity report.   
+     
+     
+         16 . The machine-readable medium of  claim 15 , wherein the prescription information includes a plurality of prescriptions including at least one second prescription, and wherein obtaining the prescription cost information includes obtaining the prescription cost information for the at least one second prescription. 
+     
+     
+         17 . The machine-readable medium of  claim 16 , wherein the machine learning model is configured to group prescriptions into bundles of one or more prescriptions, and wherein the prescription cost information associates the bundles of one or more prescriptions with a bundled prescription cost for each respective pharmacy of the first subset of the plurality of pharmacies. 
+     
+     
+         18 . (canceled) 
+     
+     
+         19 . The machine-readable medium of  claim 16 , wherein the prescription opportunity report includes a map that displays a location of each pharmacy of the first subset of the plurality of pharmacies. 
+     
+     
+         20 . The machine-readable medium of  claim 16 , wherein the prescription opportunity report provides guidance for switching the first prescription to a selected pharmacy from the first subset of the plurality of pharmacies.",NAYYA HEALTH INC,20221013,['G06Q30/02'],0.2613861110856254,0.22476073561759594,0.2388389815163095,0.24222653498455043
+US-2022335072-A1,"Device, system and method for providing descriptions to communication devices using machine learning generated templates","A device, system and method for providing descriptions to communication devices using machine learning generated templates is provided. A device replaces given word types in provided text files with corresponding tags to generate corresponding intermediate templates, the provided text files associated with a given topic. The device generates, for the given topic, one or more textual templates that include at least a portion of the corresponding tags, the textual templates in natural language sentences, the generating of the textual templates at least partially based on the corresponding intermediate templates. The device populate the corresponding tags in a textual template, of the textual templates, with corresponding words of a given data file associated with the given topic, to generate a respective description of a given item associated with the given topic, the given data file being specific to the given item. The device provides the respective description to a communication device","What is claimed is: 
+     
+         1 . A method comprising:
+ replacing, by a computing device, given word types in provided text files with corresponding tags to generate corresponding intermediate templates, the provided text files associated with a given topic;   generating for the given topic, by the computing device, one or more textual templates that include at least a portion of the corresponding tags, the one or more textual templates in natural language sentences, the generating of the one or more textual templates at least partially based on the corresponding intermediate templates;   populating, by the computing device, the corresponding tags in a textual template, of the one or more textual templates, with corresponding words of a given data file associated with the given topic, to generate a respective description of a given item associated with the given topic, the given data file being specific to the given item; and   providing, by the computing device and a communication interface, the respective description to a communication device.   
+     
+     
+         2 . The method of  claim 1 , wherein the corresponding intermediate templates are generated using at least a first machine learning algorithm, the corresponding intermediate templates used to train at least a second machine learning algorithm to generate the one or more textual templates. 
+     
+     
+         3 . The method of  claim 1 , further comprising:
+ generating an initial larger set of a plurality of the textual templates;   generating an efficacy metric for each of the plurality of the textual templates of the larger set; and   selecting a subset of the initial larger set of the plurality of the textual templates as one or more final textual templates based on the efficacy metric, the textual template for which the corresponding tags are populated being selected from the one or more final textual templates.   
+     
+     
+         4 . The method of  claim 1 , further comprising:
+ generating an initial larger set of a plurality of the textual templates;   generating a perplexity metric for each of the plurality of the textual templates of the larger set; and   selecting a subset of the initial larger set of the plurality of the textual templates as one or more final textual templates based on the perplexity metric.   
+     
+     
+         5 . The method of  claim 1 , further comprising:
+ randomly selecting the textual template from the one or more textual templates.   
+     
+     
+         6 . The method of  claim 1 , further comprising:
+ accessing one or more of a profile and text information on one or more of the given topic and the given item; and   selecting the textual template from the one or more textual templates based on one or more of the profile and the text information.   
+     
+     
+         7 . The method of  claim 1 , further comprising:
+ accessing one or more of a profile associated and text information on one or more the given topic and the given item; and   selecting the corresponding words from the given data file to populate the corresponding tags in the textual template, to generate the respective description, based on one or more of the profile and the text information.   
+     
+     
+         8 . The method of  claim 1 , further comprising:
+ when a given corresponding tag of the textual template does not correspond to words in the given data file, deleting respective words of the textual template associated with the given corresponding tag.   
+     
+     
+         9 . The method of  claim 1 , wherein:
+ the provided text files comprise human-generated text files;   the given data file comprises one or more of: an Extensible Markup Language (XML) file; and the corresponding words stored in association with respective tags; and   the respective description comprises a computer-generated file.   
+     
+     
+         10 . The method of  claim 1 , further comprising:
+ prior to providing the respective description to the communication device, translating the respective description from a first language into a second language selected based on one or more of: a location of the communication device; and an indication of the second language as received from the communication device.   
+     
+     
+         11 . The method of  claim 1 , further comprising:
+ receiving, from the communication device, a request for a description of the given item;   selecting the given data file based on the request;   generating the respective description in response to receiving the request; and   providing the respective description to the communication device in response to receiving the request.   
+     
+     
+         12 . A device comprising:
+ a communication interface; and   a controller having access to one or more memories storing provided text files associated with a given topic and a given data file associated with the given topic, the controller configured to:
+ replace given word types in the provided text files with corresponding tags to generate corresponding intermediate templates; 
+ generate, for the given topic, one or more textual templates that include at least a portion of the corresponding tags, the one or more textual templates being in natural language sentences, generating of the one or more textual templates at least partially based on the corresponding intermediate templates; 
+ populate the corresponding tags in a textual template, of the one or more textual templates, with corresponding words of the given data file to generate a respective description of a given item associated with the given topic, the given data file being specific to the given item; and 
+ provide, by the communication interface, the respective description to a communication device. 
+   
+     
+     
+         13 . The device of  claim 12 , wherein the controller is further configured to:
+ generate the corresponding intermediate templates using at least a first machine learning algorithm; and   use the corresponding intermediate templates to train at least a second machine learning algorithm to generate the one or more textual templates.   
+     
+     
+         14 . The device of  claim 12 , wherein the controller is further configured to:
+ generate an initial larger set of the one or more textual templates;   generate an efficacy metric for each of the one or more textual templates of the larger set; and   select a subset of the initial larger set of the one or more textual templates as one or more final textual templates based on the efficacy metric, the textual template for which the corresponding tags are populated being selected from the one or more final textual templates.   
+     
+     
+         15 . The device of  claim 12 , wherein the controller is further configured to:
+ generate an initial larger set of the one or more textual templates;   generate a perplexity metric for each of the one or more textual templates of the larger set; and   select a subset of the initial larger set of the one or more textual templates as one or more final textual templates based on the perplexity metric.   
+     
+     
+         16 . The device of  claim 12 , wherein the controller is further configured to:
+ access, at the one or more memories, one or more of a profile and text information on one or more of the given topic and the given item; and   select the textual template from the one or more textual templates based on one or more of the profile and the text information.   
+     
+     
+         17 . The device of  claim 12 , wherein the controller is further configured to:
+ access, at the one or more memories, one or more of a profile and text information on one or more of the given topic and the given item; and   select the corresponding words from the given data file to populate the corresponding tags in the textual template, to generate the respective description, based on one or more of the profile and the text information.   
+     
+     
+         18 . The device of  claim 12 , wherein the controller is further configured to:
+ when a given corresponding tag of the textual template does not correspond to words in the given data file, delete respective words of the textual template associated with the given corresponding tag.   
+     
+     
+         19 . The device of  claim 12 , wherein the controller is further configured to:
+ prior to providing the respective description to the communication device, translate the respective description from a first language into a second language selected based on one or more of: a location of the communication device; and an indication of the second language as received from the communication device.   
+     
+     
+         20 . The device of  claim 12 , wherein the controller is further configured to:
+ receive, from the communication device, a request for a description of the given item;   select the given data file based on the request;   generate the respective description in response to receiving the request; and   provide the respective description to the communication device in response to receiving the request.",AMADEUS SAS,20221020,['G06F40/205' 'G06F16/335' 'G06N20/00' 'G06K9/62' 'G06F16/332' 'G06F40/51'],0.25940856700103876,0.23047449539037013,0.22573180529643713,0.241099586015851
+US-2022298020-A1,Process for preparing chemically modified bicarbonate salt particles,The present disclosure relates to a method for chemically modifying particles of a bicarbonate salt in a co-rotating twin-screw extruder and chemically modified bicarbonate particles prepared therefrom. The present disclosure also relates to a method for controlling an amount of carbonate salt formed during chemical modification of bicarbonate salt particles.,"What is claimed is: 
+     
+         1 . A chemically modified bicarbonate salt particle compound comprising:
+ a bicarbonate salt and a carbonate salt, wherein a 5% aqueous solution of the chemically modified bicarbonate salt particles has pH in the range of 9.25 to 9.6, and water activity (a w ) in the range of 0.05 to 0.3.   
+     
+     
+         2 . The chemically modified bicarbonate salt particle compound of  claim 1 , wherein the pH of 5% aqueous solution of the particles has standard deviation of not more than 0.1, wherein the standard deviation is calculated by measuring the pH of at least 10 equal aliquots of the chemically modified bicarbonate salt particles. 
+     
+     
+         3 . The chemically modified bicarbonate salt particle compound of  claim 1 , wherein the bicarbonate salt is selected from the group consisting of sodium bicarbonate, potassium bicarbonate, calcium bicarbonate and combinations thereof. 
+     
+     
+         4 . The chemically modified bicarbonate salt particle compound of  claim 1 , wherein the particle comprise about 3% to 40% (w/w) of the carbonate salt. 
+     
+     
+         5 . The chemically modified bicarbonate salt particle compound of  claim 1 , wherein the compound comprises about 11% to 14% (w/w) of the carbonate salt. 
+     
+     
+         6 . The chemically modified bicarbonate salt particle compound of  claim 1 , wherein the compound comprises about 15% to 19% (w/w) of the carbonate salt. 
+     
+     
+         7 . The chemically modified bicarbonate salt particle compound of  claim 1 , wherein the compound comprises about 26% to 29% (w/w) of the carbonate salt. 
+     
+     
+         8 . The chemically modified bicarbonate salt particle compound of  claim 1 , wherein the compound comprises about 35% to 39% (w/w) of the carbonate salt. 
+     
+     
+         9 . The chemically modified bicarbonate salt particle compound of  claim 1 , wherein the chemically modified bicarbonate salt particle compound are obtained by processing bicarbonate salt particles in a co-rotating twin-screw extruder by a method comprising:
+ feeding the bicarbonate salt particles into an intake zone of the extruder;   processing the fed particles in a heat-treatment zone of the extruder at a temperature in the range of 200° C. to 350° C. for a residence time in the range 3 to 20 seconds to convert 3% to 40% w/w of the bicarbonate salt present in the fed particles into a carbonate salt, thereby obtaining the chemically modified bicarbonate salt particles; and   collecting the chemically modified bicarbonate salt particles from the extruder.   
+     
+     
+         10 . The chemically modified bicarbonate salt particle compound of  claim 9 , wherein 10% to 40% w/w of the bicarbonate salt is converted into the carbonate salt.",STEERLIFE INDIA PRIVATE LTD,20220922,['C01D7/12' 'B01J6/00'],0.19691765419060575,0.2406294965477775,0.25889366400538794,0.22679759309643088
+US-2022327246-A1,Storage array data decryption,"An aspect of the present disclosure relates to one or more data decryption techniques. In embodiments, an input/output operation (IO) stream including one or more encrypted IOs is received by a storage array. Each encrypted IO is assigned an encryption classification. Further, each encrypted IO is processed based on its assigned encryption classification.","What is claimed is: 
+     
+         1 . A method comprising:
+ receiving an input/output operation (IO) stream including one or more encrypted IOs by a storage array;   assigning each encrypted IO with an encryption classification; and   processing each encrypted IO based on its assigned encryption classification.   
+     
+     
+         2 . The method of  claim 1 , wherein the classification defines an encrypted IO&#39;s related data track as a hot data track or a cold data track. 
+     
+     
+         3 . The method of  claim 2 , wherein:
+ each hot data track defines a data track&#39;s address space having a frequency of address calls above a first threshold, and   each cold data track defines a data track&#39;s address spacing having a frequency of address calls below a second threshold.   
+     
+     
+         4 . The method of  claim 3 , wherein the first threshold has a value that is either greater than or equivalent to the second threshold&#39;s value. 
+     
+     
+         5 . The method of  claim 1 , further comprising:
+ monitoring each IO streams received by the storage array; and   identifying one or more patterns related to one or more of the received encrypted IOs.   
+     
+     
+         6 . The method of  claim 5 , further comprising:
+ classifying one or more of the encrypted IOs based on one or more of the identified patterns.   
+     
+     
+         7 . The method of  claim 5 , further comprising:
+ identifying one or more of the patterns using a machine learning (ML) processor, wherein the ML processor is configured to perform a time-series pattern recognition technique on one or more of the encrypted IOs; and   generating one or more encrypted IO models based on one or more of the identified patterns.   
+     
+     
+         8 . The method of  claim 7 , further comprising:
+ determining whether one or more of the encrypted IO models includes a classification for a subject encrypted IO;   directly de-staging the encrypted IO and its related encrypted data to at least the storage array&#39;s cache memory or storage device if one of the encrypted IO models classifies the subject encrypted IO as being related to a hot data track; and   performing a data decryption technique on the encrypted IO and its related data if one of the encrypted IO models classifies the subject encrypted IO as being related to a cold data track.   
+     
+     
+         9 . The method of  claim 8 , further comprising:
+ assigning the subject encrypted IO with a default classification if none of the encrypted IO models includes a classification for the subject encrypted IO; and   performing the data decryption technique on the subject encrypted IO and its related data if the subject encrypted IO is provided with the default classification.   
+     
+     
+         10 . The method of  claim 9 , further comprising:
+ in response to identifying at least one hot data track becoming a cold data track, performing the data decryption technique on the subject encrypted IO.   
+     
+     
+         11 . An apparatus including a memory and a processor configured to:
+ receive an input/output operation (IO) stream including one or more encrypted IOs by a storage array;   assign each encrypted IO with an encryption classification; and   process each encrypted IO based on its assigned encryption classification.   
+     
+     
+         12 . The apparatus of  claim 1 , wherein the classification defines an encrypted IO&#39;s related data track as a hot data track or a cold data track. 
+     
+     
+         13 . The apparatus of  claim 2 , wherein:
+ each hot data track defines a data track&#39;s address space having a frequency of address calls above a first threshold, and   each cold data track defines a data track&#39;s address spacing having a frequency of address calls below a second threshold.   
+     
+     
+         14 . The apparatus of  claim 3 , wherein the first threshold has a value that is either greater than or equivalent to the second threshold&#39;s value. 
+     
+     
+         15 . The apparatus of  claim 1 , further configured to:
+ monitor each IO streams received by the storage array; and   identify one or more patterns related to one or more of the received encrypted IOs.   
+     
+     
+         16 . The apparatus of  claim 5 , further configured to:
+ classify one or more of the encrypted IOs based on one or more of the identified patterns.   
+     
+     
+         17 . The apparatus of  claim 5 , further configured to:
+ identify one or more of the patterns using a machine learning (ML) processor, wherein the ML processor is configured to perform a time-series pattern recognition technique on one or more of the encrypted IOs; and   generate one or more encrypted IO models based on one or more of the identified patterns.   
+     
+     
+         18 . The apparatus of  claim 7 , further configured to:
+ determine whether one or more of the encrypted IO models includes a classification for a subject encrypted IO;   directly de-stage the encrypted IO and its related encrypted data to at least the storage array&#39;s cache memory or storage device if one of the encrypted IO models classifies the subject encrypted IO as being related to a hot data track; and   perform a data decryption technique on the encrypted IO and its related data if one of the encrypted IO models classifies the subject encrypted IO as being related to a cold data track.   
+     
+     
+         19 . The apparatus of  claim 8 , further configured to:
+ assign the subject encrypted IO with a default classification if none of the encrypted IO models includes a classification for the subject encrypted IO; and   perform the data decryption technique on the subject encrypted IO and its related data if the subject encrypted IO is provided with the default classification.   
+     
+     
+         20 . The apparatus of  claim 9 , further configured to:
+ in response to identifying at least one hot data track becoming a cold data track, perform the data decryption technique on the subject encrypted IO.",EMC IP HOLDING CO LLC,20221013,['G06F21/78' 'G06N20/00' 'G06F21/62' 'G06F21/60'],0.13610560926553106,0.25119944424681795,0.2888841726966088,0.21269885594426136
+US-2022232101-A1,Virtual workspace experience visualization and optimization,"A computer system to track and enhance performance of a virtual workspace system is provided. The computer system receives requests to profile phases of a distributed process executed by hosts coupled to one another via a network. Each of phase includes operations executed by processes hosted by the hosts. Each of phase either starts with receipt of a request via a user interface of a virtualization client or ends with provision of a response to the request via the user interface. The computer system identifies event log entries that each include an identifier of an event marking a start or an end of one of the operations, constructs a performance profile based on the event log entries, and transmits the performance profile to the user interface.","1 . A computer system comprising:
+ a memory storing a plurality of event log entries, each event log entry of the plurality of event log entries including an identifier of an event and a timestamp at which the event occurred;   at least one network interface; and   at least one processor coupled to the memory and the at least one network interface and configured to
+ receive, via the at least one network interface, a request to profile one or more phases of a distributed process executed by a plurality of hosts coupled to one another via a network, each of the one or more phases comprising a plurality of operations executed by a plurality of processes hosted by the plurality of hosts, each of the one or more phases either starting with receipt of a request via a user interface of a virtualization client application or ending with provision of a response to the request via the user interface of the virtualization client application, 
+ identify two or more event log entries within the plurality of event log entries that each include an identifier of an event marking one or more of a start and an end of one of the plurality of operations, 
+ construct a performance profile based on the two or more event log entries, and 
+ transmit the performance profile to the virtualization client application for rendering via the user interface of the virtualization client application. 
+   
+     
+     
+         2 . The computer system of  claim 1 , wherein the one or more phases comprise a virtual resource enumeration phase, the plurality of processes comprises the virtualization client application and a virtual resource broker, and to identify the two or more event log entries includes to identify
+ a first event log entry marking reception of input via the user interface requesting a list of one or more virtual resources accessible via the virtualization client application, and   a second event log entry marking rendering of the list via the user interface.   
+     
+     
+         3 . The computer system of  claim 2 , wherein the one or more phases comprise a virtual resource allocation phase and a virtual resource connection phase, the plurality of processes comprises the virtualization client application, the virtual resource broker, and a virtualization agent, and to identify the two or more event log entries includes to identify
+ a first event log entry marking reception of input via the user interface requesting access to at least one virtual resource in the list, and   a second event log entry marking rendering of a representation of the at least one virtual resource via the user interface.   
+     
+     
+         4 . The computer system of  claim 3 , wherein the at least one virtual resource is one or more of a virtual desktop, a virtual application, and virtual data storage. 
+     
+     
+         5 . The computer system of  claim 2 , wherein the one or more phases comprise a virtual resource allocation phase and a virtual resource connection phase, the plurality of processes comprises the virtualization client application, a gateway service, an identity provisioning service, a content switching service, a connection service, and a virtualization agent and to identify the two or more event log entries includes to identify
+ a first event log entry marking reception of input via the user interface requesting access to at least one virtual resource in the list, the at least one virtual resource being hosted by a multi-tenant cloud service, and   a second event log entry marking rendering of a representation of the at least one virtual resource via the user interface.   
+     
+     
+         6 . The computer system of  claim 1 , wherein the at least one processor is further configured to display a visualization of the performance profile via the user interface, the visualization comprising an indication of a difference between timestamps stored in the two or more event log entries. 
+     
+     
+         7 . The computer system of  claim 1 , wherein the at least one processor is further configured to display a visualization of the performance profile via the user interface, the visualization comprising a list of durations of execution of each operation of the plurality of operations. 
+     
+     
+         8 . The computer system of  claim 1 , wherein the at least one processor is further configured to display a visualization of the performance profile via the user interface, the visualization comprising a list of durations of execution of each of the one or more phases. 
+     
+     
+         9 . The computer system of  claim 1 , wherein the at least one processor is further configured to:
+ receive a request to improve performance of at least one process of the plurality of processes;   identify at least one enhancement available for the at least one process; and   initiate deployment of the at least one enhancement to the at least one process.   
+     
+     
+         10 . The computer system of  claim 9 , wherein the memory stores parameters of a machine learning process trained to identify the at least one enhancement by processing features descriptive of a virtual workspace system comprising the virtualization client application and to identify the at least one enhancement comprises to execute the machine learning process using the parameters and the features. 
+     
+     
+         11 . The computer system of  claim 9 , wherein the at least one process comprises the virtualization client application, the at least one enhancement comprises a template of configuration information, and to initiate deployment of the at least one enhancement comprises to replace configuration information of the virtualization client application with the template. 
+     
+     
+         12 . The computer system of  claim 11 , wherein the at least one processor is further configured to display, via the user interface, a confirmation of the deployment of the at least one enhancement. 
+     
+     
+         13 . The computer system of  claim 9 , wherein the at least one process comprises one or more of a virtualization agent and a connection service, the at least one enhancement comprises a template of configuration information, and to initiate deployment of the at least one enhancement comprises to transmit a notification to an administrator of the virtualization agent or the connection service, the notification comprising a prompt to the administrator to replace configuration information of the one or more of the virtualization agent and the connection service with the template. 
+     
+     
+         14 . The computer system of  claim 9 , wherein the at least one process comprises one or more of a gateway service, an identify provision service, a content switching service, a virtual workspace service, and a content switching service, the at least one enhancement comprises one or more of a patch and a cache setting, and to initiate deployment of the at least one enhancement comprises to transmit a notification to an administrator of the gateway service, the identity provision service, the content switching service, the virtual workspace service, and the content switching service, the notification comprising a prompt to the administrator to deploy one or more of the patch and the cache setting. 
+     
+     
+         15 . A method of tracking and enhancing performance of a virtual workspace system using a computer system comprising a memory, at least one network interface, and at least one processor coupled to the memory and the at least one network interface, the memory storing a plurality of event log entries, each event log entry of the plurality of event log entries including an identifier of an event and a timestamp at which the event occurred, the method comprising:
+ receiving, via the at least one network interface, a request to profile one or more phases of a distributed process executed by a plurality of hosts coupled to one another via a network, each of the one or more phases comprising a plurality of operations executed by a plurality of processes hosted by the plurality of hosts, each of the one or more phases either starting with receipt of a request via a user interface of a virtualization client application or ending with provision of a response to the request via the user interface of the virtualization client application;   identifying two or more event log entries within the plurality of event log entries that each include an identifier of an event marking one or more of a start and an end of one of the plurality of operations;   constructing a performance profile based on the two or more event log entries; and   transmitting the performance profile to the virtualization client application for rendering via the user interface of the virtualization client application.   
+     
+     
+         16 . The method of  claim 15 , further comprising:
+ receiving a request to improve performance of at least one process of the plurality of processes;   identifying at least one enhancement available for the at least one process; and   initiating deployment of the at least one enhancement to the at least one process.   
+     
+     
+         17 . The method of  claim 16 , wherein the at least one process comprises the virtualization client application, the at least one enhancement comprises a template of configuration information, and initiating deployment of the at least one enhancement comprises replacing configuration information of the virtualization client application with the template. 
+     
+     
+         18 . A non-transitory computer readable medium storing processor executable instructions to track and enhance performance of a virtual workspace system, the instructions comprising instructions to:
+ receive, via at least one network interface, a request to profile one or more phases of a distributed process executed by a plurality of hosts coupled to one another via a network, each of the one or more phases comprising a plurality of operations executed by a plurality of processes hosted by the plurality of hosts, each of the one or more phases either starting with receipt of a request via a user interface of a virtualization client application or ending with provision of a response to the request via the user interface of the virtualization client application;   identify two or more event log entries within a plurality of event log entries that each include an identifier of an event marking one or more of a start and an end of one of the plurality of operations;   construct a performance profile based on the two or more event log entries; and   transmit the performance profile to the virtualization client application for rendering via the user interface of the virtualization client application.   
+     
+     
+         19 . The non-transitory computer readable medium of  claim 18 , wherein the instructions further comprise instructions to:
+ receive a request to improve performance of at least one process of the plurality of processes;   identify at least one enhancement available for the at least one process; and   initiate deployment of the at least one enhancement to the at least one process.   
+     
+     
+         20 . The non-transitory computer readable medium of  claim 19 , wherein the at least one process comprises the virtualization client application, the at least one enhancement comprises a template of configuration information, and the instructions to initiate deployment of the at least one enhancement comprise instructions to replace configuration information of the virtualization client application with the template.",CITRIX SYSTEMS INC,20220721,['H04L67/00' 'H04L47/765' 'G06N20/00'],0.18099441344534792,0.21102870588092162,0.2728564341989126,0.21138053457029035
+US-2023017546-A1,Methods and systems for real-time cycle length determination in electrocardiogram signals,"Various methods and systems are provided for analyzing an electrocardiogram (ECG) in real-time using machine learning to identify heartbeats, calculate a cycle length for each heartbeat, and display the cycle length for each heartbeat at a user interface. Waveform morphology of ECG data is continuously learned to identify recurrent signals and generate templates based on recurrent signals, to which ECG data is compared to identify and display heartbeats. Generated templates are continuously updated to reflect changing waveform morphologies.","1 . A method for an electrophysiology study, comprising:
+ establishing a plurality of standardized electrocardiogram (ECG) patterns based on real-time sensed ECG data;   selecting signals of the real-time sensed ECG data based on a correlation between the real-time sensed ECG data and at least one pattern of the plurality of standardized ECG patterns;   determining a cycle length of each of the signals of the real-time ECG data; and   displaying the cycle length for the respective signal at a user interface.   
+     
+     
+         2 . The method of  claim 1 , wherein establishing the plurality of standardized ECG patterns includes continuously learning the waveform morphology of the real-time sensed ECG data from sensors monitoring heart activity and wherein the sensors include surface electrodes and intracardiac catheter electrodes. 
+     
+     
+         3 . The method of  claim 2 , wherein continuously learning the wave morphology of the real-time sensed ECG data includes filtering the real-time sensed ECG data through a band pass filter. 
+     
+     
+         4 . The method of  claim 1 , wherein establishing the plurality of standardized ECG patterns includes using machine learning to establish standardized patterns based on deflections of the real-time sensed ECG data. 
+     
+     
+         5 . The method of  claim 4 , wherein establishing the standardized patterns includes learning segments of the real-time sensed ECG data where the deflections occur and determining correlations among the learned segments. 
+     
+     
+         6 . The method of  claim 5 , where selecting the signals of the real-time sensed ECG data includes, prior to establishing the plurality of standardized ECG patterns, placing a tick mark where a deflection of the deflections of the real-time sensed ECG data crosses a first signal threshold. 
+     
+     
+         7 . The method of  claim 1 , wherein selecting the signals of the real-time sensed ECG data includes identifying a first signal of the signals of the real-time sensed ECG data where a deflection crosses a second signal threshold and has a correlation percentage with at least one of a target number of patterns of the plurality of standardized ECG patterns above a first correlation threshold, and wherein the target number of patterns is determined based on the learned segments of the real-time sensed ECG data where deflections occur prior to the first signal. 
+     
+     
+         8 . The method of  claim 7 , further comprising, replacing a previously established pattern of the target number of patterns with a new pattern when the target number of patterns is exceeded and the previously established pattern has a least number of instances of correlation with the signals of the real-time sensed ECG data. 
+     
+     
+         9 . The method of  claim 1 , wherein selecting the signals of the real-time sensed ECG data includes displaying tick marks on the real-time sensed ECG data at the user interface, with a tick mark at each signal of the signals of the real-time sensed ECG data. 
+     
+     
+         10 . The method of  claim 9 , wherein determining the cycle length includes determining a distance between a first tick mark of the tick marks, corresponding to a first signal of the signals of the real-time ECG data, and a second tick mark of the tick marks, corresponding to a second signal of the signals of the real-time ECG data. 
+     
+     
+         11 . A method for analyzing an electrocardiogram (ECG) in real-time, comprising:
+ responsive to capturing segments of ECG data for a target duration of time;
+ identifying periods of interest in the segments where a signal crosses a first signal threshold, the signal indicating a heart activity, and establishing the periods of interest as learning templates; 
+   responsive to generation of a first target number of learning templates in a set of learning templates;
+ determining a correlation of a waveform morphology among the set of learning templates and generating a final template based on a first correlation threshold; 
+   responsive to generation of a target number of final templates in a set of final templates;
+ using the set of final templates to identify a recurrent signal in real-time based on a second correlation threshold; 
+ displaying a tick mark at a user interface to indicate the recurrent signal; and 
+ displaying a cycle length of the recurrent signal at the user interface, where the cycle length is a distance between successive tick marks. 
+   
+     
+     
+         12 . The method of  claim 11 , wherein the target duration of time for capturing the segments of the ECG data is two seconds. 
+     
+     
+         13 . The method of  claim 11 , wherein determining the correlation of the waveform morphology among the set of learning templates and generating the final template based on the first correlation threshold includes, when a waveform morphology of a first learning template of the set of learning templates and waveform morphologies of each of a second target number of learning templates correlate at a percentage above the first correlation threshold, identifying the first learning template as the final template, and wherein the second target number of learning templates is less than the first target number of learning templates. 
+     
+     
+         14 . The method of  claim 11 , further comprising, prior to establishing a first final template, placing a tick mark where the signal crosses a second signal threshold. 
+     
+     
+         15 . The method of  claim 14 , wherein the first signal threshold is a first percentage of a signal range between a minimum value and a maximum value and the second signal threshold is a second percentage of the signal range and wherein the second percentage is greater than the first percentage. 
+     
+     
+         16 . The method of  claim 11 , wherein generation of the set of final templates is continuous and, upon generation of final templates beyond the target number of final templates, replacing a final template of the set of final templates having a least number of instances of correlation with recurrent signals with a newly generated final template. 
+     
+     
+         17 . A method for detecting cardiac arrhythmia in real-time, comprising:
+ identifying a candidate beat from an electrocardiogram signal via machine learning, the electrocardiogram signal detected by one or more of surface electrodes and intracardiac catheter electrodes; and   upon determination that an amplitude of the candidate beat crosses a first threshold;
+ estimating a correlation between a waveform morphology of the candidate beat and the waveform morphologies of a set of final templates, the set of final templates generated based on identification of a recurrent waveform morphology of the electrocardiogram signal, to confirm if the candidate beat is an actual beat; and 
+ displaying a tick mark and an estimated cycle length of the candidate beat at a user interface when the candidate beat is confirmed as the actual beat. 
+   
+     
+     
+         18 . The method of  claim 17 , wherein the first threshold is a first percentage of a signal amplitude defined by a minimum value and a maximum value of the electrocardiogram signal. 
+     
+     
+         19 . The method of  claim 17 , wherein estimating the correlation between the waveform morphology of the candidate beat and the waveform morphologies of the set of final templates includes performing a correlation calculation and confirming the candidate beat is the actual beat when a resulting correlation percentage is greater than a second threshold. 
+     
+     
+         20 . The method of  claim 17 , wherein the recurrent waveform morphology is identified where correlation of a first signal of the electrocardiogram signal exceeds a third correlation threshold when compared with at least three signals of the electrocardiogram signal.",GE PREC HEALTHCARE LLC,20230119,['A61B5/283' 'A61B5/35' 'A61B5/00'],0.17628943969553035,0.22417075859868762,0.2328446426889495,0.2067530078554771
+US-2022344652-A1,"Silicon-based material, method for producing the same and applications thereof","The invention provides a silicon-based material and a method for producing the same. In all X-ray diffraction pattern obtained by using Cu Kα rays, the silicon-based material includes the following characteristic peaks: (A) a characteristic peak at 2θ=23°±1° with an intensity I A ; (B) a characteristic peak at 2θ=28°±0.5° with an intensity I B ; (C) a characteristic peak at 2θ=48°±1° with an intensity I C ; and (D) a characteristic peak at 2θ=56°±1° with an intensity I D , wherein: 1.2≤I B /I A ≤1.7; 1.8≤I B /I C ≤2.3; and 1.6≤I B /I D ≤3.0. The present invention also provides a battery negative electrode including the silicon-based material.","What is claimed is: 
+     
+         1 . A silicon-based material, wherein in an X-ray diffraction pattern obtained by using Cu Kα rays, the silicon-based material comprises the following characteristic peaks:
+ (A) a characteristic peak at 2θ=23°±1° with an intensity I A ; 
+ (B) a characteristic peak at 2θ=28°±0.5° with an intensity I B ; 
+ (C) a characteristic peak at 2θ=48°±1° with an intensity I C ; and 
+ (D) a characteristic peak at 2θ=56°±1° with an intensity I D , 
+ 
+       and wherein:
+ 1.2≤I B /I A ≤1.7; 
+ 1.8≤I B /I C ≤2.3; and 
+ 1.6≤I B /I D ≤3.0. 
+ 
+     
+     
+         2 . The silicon-based material of  claim 1 , wherein the silicon-based material is in powder form and has an average particle size (D 50 ) of 2 μm to 10 μm. 
+     
+     
+         3 . The silicon-based material of  claim 1 , wherein the silicon-based material comprises a silicon compound particle, a carbon material and a metal element. 
+     
+     
+         4 . The silicon-based material of  claim 3 , wherein based on the total weight of the silicon-based material taken as 100 wt %, a content of the silicon compound particle is 69 wt % to 98 wt %. 
+     
+     
+         5 . The silicon-based material of  claim 3 , wherein based on the total weight of the silicon-based material taken as 100 wt %, a content of the carbon material is 1 wt % to 30 wt %. 
+     
+     
+         6 . The silicon-based material of  claim 3 , wherein based on the total weight of the silicon-based material taken as 100 wt %, a content of the metal element is 0.1 wt % to 1 wt %. 
+     
+     
+         7 . The silicon-based material of  claim 3 , wherein the silicon compound particle comprises a silicon compound SiO x , wherein 0≤x≤2, and the metal element comprises an alkali metal or an alkaline earth metal. 
+     
+     
+         8 . A method for preparing a silicon-based material, comprising:
+ mixing a metal source compound, a carbon source compound and a silicon oxide raw material with water to obtain an aqueous mixture; and   subjecting the aqueous mixture to heat treatment.   
+     
+     
+         9 . The method of  claim 8 , wherein the metal source compound comprises lithium hydroxide, sodium hydroxide, potassium hydroxide, magnesium hydroxide, or any combination thereof. 
+     
+     
+         10 . The method of  claim 8 , wherein the carbon source compound comprises citric acid, malic acid, tartaric acid, polyacrylic acid, and maleic acid, or a combination thereof. 
+     
+     
+         11 . The method of  claim 8 , wherein based on 100 parts by weight of the silicon oxide raw material, an amount of the metal source compound is 0.1 part by weight to 1 part by weight. 
+     
+     
+         12 . The method of  claim 8 , wherein based on 100 parts by weight of the silicon oxide raw material, an amount of the carbon source compound is 10 parts by weight to 30 parts by weight. 
+     
+     
+         13 . A battery negative electrode, comprising the silicon-based material of  claim 1 .",ETERNAL MAT CO LTD,20221027,['H01M4/36' 'H01M4/485' 'H01M4/583'],0.25074103629079203,0.164972261278668,0.20113669947877205,0.20651265892353846
+US-2022405529-A1,Learning Mahalanobis Distance Metrics from Data,"The present invention provides techniques for learning Mahalanobis distance similarity metrics from data for individually fair machine learning models. In one aspect, a method for learning a fair Mahalanobis distance similarity metric includes: obtaining data with similarity annotations; selecting, based on the data obtained, a model for learning a Mahalanobis covariance matrix Σ; and learning the Mahalanobis covariance matrix Σ from the data using the model selected, wherein the Mahalanobis covariance matrix Σ fully defines the fair Mahalanobis distance similarity metric.","What is claimed is: 
+     
+         1 . A method for learning a fair Mahalanobis distance similarity metric, the method comprising:
+ obtaining data with similarity annotations;   selecting, based on the data obtained, a model for learning a Mahalanobis covariance matrix Σ; and   learning the Mahalanobis covariance matrix Σ from the data using the model selected, wherein the Mahalanobis covariance matrix Σ fully defines the fair Mahalanobis distance similarity metric.   
+     
+     
+         2 . The method of  claim 1 , wherein the fair Mahalanobis distance similarity metric is of a form:
+     d   x ( x   1   ,x   2 ) (φ( x   1 )−φ)( x   2 )Σ(φ( x   1 )−φ( x   2 ))),
+   wherein φ(x):X→R d  is an embedding map and Σ∈S +   d .   
+     
+     
+         3 . The method of  claim 1 , wherein the data obtained comprises groups of comparable samples. 
+     
+     
+         4 . The method of  claim 3 , wherein the model selected comprises a factor model. 
+     
+     
+         5 . The method of  claim 4 , wherein the factor model comprises:
+   φ i   =A   *   u   i   +B   * υ i +∈ i ,
+   
+       wherein φ i ∈R d  is a learned representation of x i , u i ∈R K  is a sensitive attribute of x i  for a task at hand, υ i ∈R L  is a relevant attribute of x i  for the task at hand, and ∈ i  is an error term. 
+     
+     
+         6 . The method of  claim 5 , further comprising:
+ choosing an orthogonal complement of ran (A * ) for the Mahalanobis covariance matrix Σ, wherein ran (A * ) is a column space of A * ; and   solving for ran (A * ).   
+     
+     
+         7 . The method of  claim 1 , wherein the data obtained comprises pairs of samples that are comparable, incomparable, or combinations thereof. 
+     
+     
+         8 . The method of  claim 7 , wherein the model selected comprises a binary response model. 
+     
+     
+         9 . The method of  claim 8 , wherein the data comprises human user feedback in a form of triplets {(x i1 , x i2 , y i )} i=1   n , where y i ∈{0,1} indicates whether a human user considers x i1  and x i2  comparable, wherein (x i1 , x i2 , y i ) satisfies the binary response model: 
+       
+         
+           
+             
+               
+                 
+                   
+                     y 
+                     i 
+                   
+                   ❘ 
+                   
+                     x 
+                     
+                       i 
+                       ⁢ 
+                       1 
+                     
+                   
+                 
+                 , 
+                 
+                   
+                     x 
+                     
+                       i 
+                       ⁢ 
+                       2 
+                     
+                   
+                   ∼ 
+                   
+                     Ber 
+                     ⁢ 
+                        
+                     
+                       ( 
+                       
+                         2 
+                         ⁢ 
+                         
+                           σ 
+                           ⁡ 
+                           ( 
+                           
+                             - 
+                             
+                               d 
+                               i 
+                             
+                           
+                           ) 
+                         
+                       
+                       ) 
+                     
+                   
+                 
+                 , 
+                   
+                 
+                   
+                     d 
+                     i 
+                   
+                   
+                     = 
+                     Δ 
+                   
+                   
+                     
+                        
+                       
+                         
+                           φ 
+                           
+                             i 
+                             ⁢ 
+                             1 
+                           
+                         
+                         - 
+                         
+                           φ 
+                           
+                             i 
+                             ⁢ 
+                             2 
+                           
+                         
+                       
+                        
+                     
+                     
+                       Σ 
+                       0 
+                     
+                     2 
+                   
+                 
+               
+               ⁢ 
+               
+ 
+               
+                 = 
+                 
+                   
+                     
+                       ( 
+                       
+                         
+                           φ 
+                           
+                             i 
+                             ⁢ 
+                             1 
+                           
+                         
+                         - 
+                         
+                           φ 
+                           
+                             i 
+                             ⁢ 
+                             2 
+                           
+                         
+                       
+                       ) 
+                     
+                     T 
+                   
+                   ⁢ 
+                   
+                     
+                       Σ 
+                       0 
+                     
+                     ( 
+                     
+                       
+                         φ 
+                         
+                           i 
+                           ⁢ 
+                           1 
+                         
+                       
+                       - 
+                       
+                         φ 
+                         
+                           i 
+                           ⁢ 
+                           2 
+                         
+                       
+                     
+                     ) 
+                   
+                 
+               
+               ⁢ 
+               
+ 
+               
+                 
+                   
+                     = 
+                   
+                   
+                     〈 
+                     
+                       
+                         
+                           
+                             
+                               
+                                 ( 
+                                 
+                                   
+                                     φ 
+                                     
+                                       i 
+                                       ⁢ 
+                                       1 
+                                     
+                                   
+                                   - 
+                                   
+                                     φ 
+                                     
+                                       i 
+                                       ⁢ 
+                                       2 
+                                     
+                                   
+                                 
+                                 ) 
+                               
+                               ⁢ 
+                               
+                                 
+                                   ( 
+                                   
+                                     
+                                       φ 
+                                       
+                                         i 
+                                         ⁢ 
+                                         1 
+                                       
+                                     
+                                     - 
+                                     
+                                       φ 
+                                       
+                                         i 
+                                         ⁢ 
+                                         2 
+                                       
+                                     
+                                   
+                                   ) 
+                                 
+                                 T 
+                               
+                             
+                             , 
+                           
+                           ︸ 
+                         
+                         
+                           D 
+                           i 
+                         
+                       
+                       ⁢ 
+                       
+                         Σ 
+                         0 
+                       
+                     
+                     〉 
+                   
+                 
+                 , 
+               
+             
+           
+         
+       
+       and wherein 
+       
+         
+           
+             
+               
+                 σ 
+                 ⁡ 
+                 ( 
+                 z 
+                 ) 
+               
+               
+                 = 
+                 Δ 
+               
+               
+                 1 
+                 
+                   1 
+                   + 
+                   
+                     e 
+                     
+                       - 
+                       z 
+                     
+                   
+                 
+               
+             
+           
+         
+       
+       is a logistic function, and φ i1 , φ i2  are learned representations of x i1  and x i2 , respectively, and Σ 0 ∈S +   d . 
+     
+     
+         10 . The method of  claim 9 , further comprising:
+ estimating Σ 0  as a maximum of a log-likelihood function:   
+       
+         
+           
+             
+               
+                 + 
+                 
+                   log 
+                   ⁡ 
+                   ( 
+                   
+                     1 
+                     - 
+                     
+                       2 
+                       ⁢ 
+                       
+                         σ 
+                         ⁡ 
+                         ( 
+                         
+                           - 
+                           
+                             〈 
+                             
+                               
+                                 D 
+                                 i 
+                               
+                               , 
+                               Σ 
+                             
+                             〉 
+                           
+                         
+                         ) 
+                       
+                     
+                   
+                   ) 
+                 
+               
+               ⁢ 
+               
+ 
+               
+                 
+                   
+                     
+                       ℓ 
+                       n 
+                     
+                     ( 
+                     Σ 
+                     ) 
+                   
+                   = 
+                   
+                     
+                       1 
+                       n 
+                     
+                     ⁢ 
+                     
+                       
+                         ∑ 
+                         
+                           i 
+                           = 
+                           1 
+                         
+                         n 
+                       
+                       
+                         
+                           y 
+                           i 
+                         
+                         ⁢ 
+                            
+                         log 
+                         ⁢ 
+                            
+                         
+                           
+                             2 
+                             ⁢ 
+                             
+                               σ 
+                               ⁡ 
+                               ( 
+                               
+                                 - 
+                                 
+                                   〈 
+                                   
+                                     
+                                       D 
+                                       i 
+                                     
+                                     , 
+                                     Σ 
+                                   
+                                   〉 
+                                 
+                               
+                               ) 
+                             
+                           
+                           
+                             1 
+                             - 
+                             
+                               2 
+                               ⁢ 
+                               
+                                 σ 
+                                 ⁡ 
+                                 ( 
+                                 
+                                   - 
+                                   
+                                     〈 
+                                     
+                                       
+                                         D 
+                                         i 
+                                       
+                                       , 
+                                       Σ 
+                                     
+                                     〉 
+                                   
+                                 
+                                 ) 
+                               
+                             
+                           
+                         
+                       
+                     
+                   
+                 
+                 ; 
+               
+             
+           
+         
+       
+       and
+ maximizing    n  using stochastic gradient descent (SGD). 
+ 
+     
+     
+         11 . The method of  claim 1 , wherein the data is obtained from at least one data source selected from the group consisting of: human user feedback, hand-picked groups of similar training examples, hand-crafted examples that should be treated similarly as observed training examples, and combinations thereof. 
+     
+     
+         12 . The method of  claim 1 , further comprising:
+ restructuring the data by using embeddings of the data.   
+     
+     
+         13 . The method of  claim 1 , further comprising:
+ using the fair Mahalanobis distance similarity metric with a machine learning model to obtain an individually fair machine learning system for performing tasks.   
+     
+     
+         14 . A method for learning a fair Mahalanobis distance similarity metric, the method comprising:
+ obtaining data of one of two types: data of a first type wherein the data comprises groups of comparable samples or data of a second type wherein the data comprises pairs of samples that are comparable, incomparable, or combinations thereof;   selecting a factor model if the data of the first type is obtained, or a binary response model if the data of the second type is obtained; and   learning a Mahalanobis covariance matrix Σ from the data using the factor model or the binary response model, whichever is selected, wherein the Mahalanobis covariance matrix Σ fully defines the fair Mahalanobis distance similarity metric.   
+     
+     
+         15 . The method of  claim 14 , wherein the fair Mahalanobis distance similarity metric is of a form:
+     d   x ( x   1   ,x   2 ) φ( x   1 )−φ( x   2 )Σ(φ( x   1 )−φ( x   2 )) ,
+   
+       wherein φ(x):X→R d  is an embedding map and Σ∈S +   d . 
+     
+     
+         16 . The method of  claim 14 , wherein the factor model is selected, and wherein the factor model comprises:
+   φ i   =A   *   u   i   +B   * υ i +ϵ i ,
+   
+       wherein φ i ∈R d  is a learned representation of x i , u i ∈R K  is a sensitive attribute of x i  for a task at hand, υ i ∈R L  is a relevant attribute of x, for the task at hand, and €, is an error term. 
+     
+     
+         17 . The method of  claim 14 , wherein the binary response model is selected, wherein the data comprises human user feedback in a form of triplets {(x i1 , x i2 , y i )} i=1   n , where y i ∈{0,1} indicates whether a human user considers x i1  and x i2  comparable, wherein (x i1 , x i2 , y i ) satisfies the binary response model: 
+       
+         
+           
+             
+               
+                 
+                   
+                     y 
+                     i 
+                   
+                   ❘ 
+                   
+                     x 
+                     
+                       i 
+                       ⁢ 
+                       1 
+                     
+                   
+                 
+                 , 
+                 
+                   
+                     x 
+                     
+                       i 
+                       ⁢ 
+                       2 
+                     
+                   
+                   ∼ 
+                   
+                     Ber 
+                     ⁢ 
+                        
+                     
+                       ( 
+                       
+                         2 
+                         ⁢ 
+                         
+                           σ 
+                           ⁡ 
+                           ( 
+                           
+                             - 
+                             
+                               d 
+                               i 
+                             
+                           
+                           ) 
+                         
+                       
+                       ) 
+                     
+                   
+                 
+                 , 
+                   
+                 
+                   
+                     d 
+                     i 
+                   
+                   
+                     = 
+                     Δ 
+                   
+                   
+                     
+                        
+                       
+                         
+                           φ 
+                           
+                             i 
+                             ⁢ 
+                             1 
+                           
+                         
+                         - 
+                         
+                           φ 
+                           
+                             i 
+                             ⁢ 
+                             2 
+                           
+                         
+                       
+                        
+                     
+                     
+                       Σ 
+                       0 
+                     
+                     2 
+                   
+                 
+               
+               ⁢ 
+               
+ 
+               
+                 = 
+                 
+                   
+                     
+                       ( 
+                       
+                         
+                           φ 
+                           
+                             i 
+                             ⁢ 
+                             1 
+                           
+                         
+                         - 
+                         
+                           φ 
+                           
+                             i 
+                             ⁢ 
+                             2 
+                           
+                         
+                       
+                       ) 
+                     
+                     T 
+                   
+                   ⁢ 
+                   
+                     
+                       Σ 
+                       0 
+                     
+                     ( 
+                     
+                       
+                         φ 
+                         
+                           i 
+                           ⁢ 
+                           1 
+                         
+                       
+                       - 
+                       
+                         φ 
+                         
+                           i 
+                           ⁢ 
+                           2 
+                         
+                       
+                     
+                     ) 
+                   
+                 
+               
+               ⁢ 
+               
+ 
+               
+                 
+                   
+                     = 
+                   
+                   
+                     〈 
+                     
+                       
+                         
+                           
+                             
+                               
+                                 ( 
+                                 
+                                   
+                                     φ 
+                                     
+                                       i 
+                                       ⁢ 
+                                       1 
+                                     
+                                   
+                                   - 
+                                   
+                                     φ 
+                                     
+                                       i 
+                                       ⁢ 
+                                       2 
+                                     
+                                   
+                                 
+                                 ) 
+                               
+                               ⁢ 
+                               
+                                 
+                                   ( 
+                                   
+                                     
+                                       φ 
+                                       
+                                         i 
+                                         ⁢ 
+                                         1 
+                                       
+                                     
+                                     - 
+                                     
+                                       φ 
+                                       
+                                         i 
+                                         ⁢ 
+                                         2 
+                                       
+                                     
+                                   
+                                   ) 
+                                 
+                                 T 
+                               
+                             
+                             , 
+                           
+                           ︸ 
+                         
+                         
+                           D 
+                           i 
+                         
+                       
+                       ⁢ 
+                       
+                         Σ 
+                         0 
+                       
+                     
+                     〉 
+                   
+                 
+                 , 
+               
+             
+           
+         
+       
+       and wherein 
+       
+         
+           
+             
+               
+                 σ 
+                 ⁡ 
+                 ( 
+                 z 
+                 ) 
+               
+               
+                 = 
+                 Δ 
+               
+               
+                 1 
+                 
+                   1 
+                   + 
+                   
+                     e 
+                     
+                       - 
+                       z 
+                     
+                   
+                 
+               
+             
+           
+         
+       
+       is a logistic function, φ i1  and φ i2  are learned representations of x i1  and x i2 , respectively, and Σ 0 ∈S +   d . 
+     
+     
+         18 . The method of  claim 14 , wherein the data is obtained from at least one data source selected from the group consisting of: human user feedback, hand-picked groups of similar training examples, hand-crafted examples that should be treated similarly as observed training examples, and combinations thereof. 
+     
+     
+         19 . A non-transitory computer program product for learning a fair Mahalanobis distance similarity metric, the computer program product comprising a computer readable storage medium having program instructions embodied therewith, the program instructions executable by a computer to cause the computer to:
+ obtain data with similarity annotations;   select, based on the data obtained, a model for learning a Mahalanobis covariance matrix Σ; and   learn the Mahalanobis covariance matrix Σ from the data using the model selected, wherein the Mahalanobis covariance matrix Σ fully defines the fair Mahalanobis distance similarity metric.   
+     
+     
+         20 . The non-transitory computer program product of  claim 19 , wherein the fair Mahalanobis distance similarity metric is of a form:
+     d   x ( x   1   ,x   2 ) φ( x   1 )−φ( x   2 )Σ(φ( x   1 )−φ( x   2 )) ,
+   
+       wherein φ(x):X→R d  is an embedding map and Σ∈S +   d .","IBM,UNIV MICHIGAN",20221222,['G06N3/08' 'G06K9/62'],0.1302403273714719,0.22515375847235697,0.265424470195986,0.19524252837672876
+US-2022207384-A1,Extracting Facts from Unstructured Text,"A system, computer program product, and method are provided for extraction of factual data from unstructured natural language (NL) text. A detection model is applied to convert unstructured NL text in a first language to annotated NL text. The detection model identifies two or more mentions from the unstructured NL text and a logical position of the mentions. The detection model further identifies a sequential position for each of the mentions and attaches a sequential position identifier. A pattern of rules corresponding with the annotated NL text is identified and applied to the annotated NL text, and one or more facts embedded within the annotated NL text are extracted and converted into structured data.","What is claimed is: 
+     
+         1 . A computer system comprising:
+ a processor operatively coupled to memory;   an artificial intelligence (AI) platform, in communication with the processor, having one or more tools, the tools comprising:
+ a machine learning manager configured to apply a detection model to convert unstructured NL text in a first language to annotated NL text in the first language, including the detection model configured to:
+ identify two or more mentions from the unstructured NL text, each mention being an entity type having an attribute; 
+ identify a logical position of the identified two or more mentions; 
+ attach a label to each identified mention, the label describing a mention type; and 
+ identify a sequential position of each of the two or more mentions, and attach a sequential position identifier to each of the two or more mentions; 
+ 
+ the machine learning manager configured to apply a second model to the annotated NL text, including the second model configured to:
+ identify a pattern of rules for the annotated NL text based on the identified logical position and the sequential position identifier of the two or more mentions, and apply the pattern to the annotated NL text; and 
+ extract one or more facts embedded within the identified mentions from the annotated NL text responsive to the identified pattern; and 
+ 
+ a data manager, operatively coupled to the machine learning manager, configured to convert the extracted one or more facts into generated structured data. 
+   
+     
+     
+         2 . The computer system of  claim 1 , wherein application of the second model to the annotated NL text further comprises the second model to align the identified mentions responsive to the pattern, including employ a rule based algorithm with one or more rules defining a combination of the identified logical position and the identified sequential position of the two or more mentions. 
+     
+     
+         3 . The computer system of  claim 1 , further comprising a training manager configured to train a second detection model to annotate NL text in a second language different from the first language, including the training manager configured to leverage a machine learning translation model to translate the annotated NL text from the first language to the second language, and retain the labels in the first language with translation of the identified mentions. 
+     
+     
+         4 . The computer system of  claim 3 , further comprising the machine learning manager configured to apply the second model to the annotated NL text in the second language and extract one or more facts from the annotated NL text in the second language. 
+     
+     
+         5 . The computer system of  claim 1 , further comprising a rule manager configured to define one or more meta-rules for application to the identified pattern of rules for the annotated NL text in the first language, the meta-rule to extend the identified pattern to including one or more additional mentions, and generate a new pattern of rules with the one or more additional mentions. 
+     
+     
+         6 . The computer system of  claim 5 , further comprising the second model configured to apply the new pattern of rules to the annotated NL text and extract one or more additional facts corresponding to the one or more additional mentions. 
+     
+     
+         7 . A computer program product comprising a computer readable storage medium having program code embedded therewith, the program code executable by a processor to:
+ apply a detection model to convert unstructured NL text in a first language to annotated NL text in the first language, including:
+ identify two or more mentions from the unstructured NL text, each mention being an entity type having an attribute; 
+ identify a logical position of the identified two or more mentions; 
+ attach a label to each identified mention, the label describing a mention type; and 
+ identify a sequential position of each of the two or more mentions, and attaching a sequential position identifier to each of the two or more mentions; 
+   apply a second model to the annotated NL text, including:
+ identify a pattern of rules for the annotated NL text based on the identified logical position and the sequential position identifier of the two or more mentions, and apply the pattern to the annotated NL text; and 
+ extract one or more facts embedded within the identified mentions from the annotated NL text responsive to the identified pattern; and 
+   generate structured data, including conversion of the extracted one or more facts from the second model.   
+     
+     
+         8 . The computer program product of  claim 7 , wherein the program code to apply the second model to the annotated NL text further comprises program code to align the identified mentions responsive to the pattern, including employ a rule based algorithm with one or more rules defining a combination of the identified logical position and the identified sequential position of the two or more mentions. 
+     
+     
+         9 . The computer program product of  claim 7 , further comprising program code configured to train a second detection model to annotate NL text in a second language different from the first language, the training including leveraging a machine learning translation model to translate the annotated NL text from the first language to the second language, and retaining the labels in the first language with translation of the identified mentions. 
+     
+     
+         10 . The computer program product of  claim 9 , further comprising program code configured to apply the second model to the annotated NL text in the second language and extract one or more facts from the annotated NL text in the second language. 
+     
+     
+         11 . The computer program product of  claim 7 , further comprising program code configured to define one or more meta-rules for application to the identified pattern of rules for the annotated NL text in the first language, the meta-rule extending the identified pattern to including one or more additional mentions, and the program code to generate a new pattern of rules with the one or more additional mentions. 
+     
+     
+         12 . The computer program product of  claim 11 , further comprising program code configured to apply the second model to the new pattern of rules to the annotated NL text and extract one or more additional facts corresponding to the one or more additional mentions. 
+     
+     
+         13 . A computer-implemented method comprising:
+ applying a detection model to convert unstructured NL text in a first language to annotated NL text in the first language, including:
+ identifying two or more mentions from the unstructured NL text, each mention being an entity type having an attribute; 
+ identifying a logical position of the identified two or more mentions; 
+ attaching a label to each identified mention, the label describing a mention type; and 
+ identifying a sequential position of each of the two or more mentions, and attaching a sequential position identifier to each of the two or more mentions; 
+   applying a second model to the annotated NL text, including:
+ identifying a pattern of rules for the annotated NL text based on the identified logical position and the sequential position identifier of the two or more mentions, and applying the pattern to the annotated NL text; and 
+ extracting one or more facts embedded within the identified mentions from the annotated NL text responsive to the identified pattern; and 
+   converting the extracted one or more facts into structured data.   
+     
+     
+         14 . The computer-implemented method of  claim 13 , wherein applying the second model to the annotated NL text further comprises aligning the identified mentions responsive to the pattern, including employing a rule based algorithm with one or more rules defining a combination of the identified logical position and the identified sequential position of the two or more mentions. 
+     
+     
+         15 . The computer-implemented method of  claim 13 , further comprising training a second detection model to annotate NL text in a second language different from the first language, the training including leveraging a machine learning translation model to translate the annotated NL text from the first language to the second language, and retaining the labels in the first language with translation of the identified mentions. 
+     
+     
+         16 . The computer-implemented method of  claim 15 , further comprising applying the second model to the annotated NL text in the second language and extracting one or more facts from the annotated NL text in the second language. 
+     
+     
+         17 . The computer-implemented method of  claim 13 , further comprising defining one or more meta-rules for application to the identified pattern of rules for the annotated NL text in the first language, the meta-rule extending the identified pattern to including one or more additional mentions, and generating a new pattern of rules with the one or more additional mentions. 
+     
+     
+         18 . The computer-implemented method of  claim 17 , further comprising the second model applying the new pattern of rules to the annotated NL text and extracting one or more additional facts corresponding to the one or more additional mentions.",IBM,20220630,['G06F40/279' 'G06N20/00' 'G06N5/02' 'G06F40/169' 'G06F40/58'],0.1273620111669359,0.1820818518955949,0.23527254330119354,0.17083205388525105
+US-2023045909-A1,Personalized Application Configuration As A Service,"A system and method for conducting a parameter update event including one or more processors for transmitting first parameter settings to a program used by multiple users, such as a mobile device application at a plurality of mobile devices, receiving performance information indicating performance of the program after the first parameter setting, the performance information for each user being separately identifiable, and for each individual user of the plurality of users, determining a parameter setting update based at least in part on the performance information of the individual user and transmitting the parameter setting update to the program.","1 . A method of conducting a parameter update event comprising:
+ transmitting, by one or more processors, first parameter settings to a program;   receiving, by the one or more processors, performance information indicating performance of the program for a first plurality of users after the first parameter setting, wherein the performance information for each user is separately identifiable;   for each individual user of the first plurality of users:
+ determining, by the one or more processors, a user-specific parameter setting update based at least in part on the performance information of the individual user; and 
+ transmitting, by the one or more processors, the user-specific parameter setting update to the program. 
+   
+     
+     
+         2 . The method of  claim 1 , wherein the user-specific parameter setting update is determined based further on past performance information of the user before the first parameter setting. 
+     
+     
+         3 . The method of  claim 1 , wherein the parameter setting update is determined based further on performance information of other users of the first plurality of users after the first parameter setting. 
+     
+     
+         4 . The method of  claim 1 , wherein receiving performance information, determining a parameter setting update, and transmitting the parameter setting update are repeated periodically according to a predetermined frequency for updating the program. 
+     
+     
+         5 . The method of  claim 4 , wherein the predetermined frequency is between one hour and one week. 
+     
+     
+         6 . The method of  claim 4 , further comprising:
+ receiving, by the one or more processors, a parameter update event instruction indicating available parameter settings and an objective, wherein the first parameter settings and the user-specific parameter setting updates are selected from the available parameter settings, and wherein the user-specific parameter setting updates are determined based on the objective.   
+     
+     
+         7 . The method of  claim 6 , wherein the objective includes one or more factors defined by user interaction with the program. 
+     
+     
+         8 . The method of  claim 7 , wherein the one or more factors includes at least one of:
+ money spent in the program; time spent interacting with the program; times opening the program;   or user-rating of the program.   
+     
+     
+         9 . The method of  claim 6 , further comprising, in response to receiving the performance information, calculating, by the one or more processors, a test group score for the first plurality of users, wherein a higher score is indicative of greater fulfillment of the objective. 
+     
+     
+         10 . The method of  claim 9 , further comprising, in response to a request for analysis of the parameter update event, transmitting, by the one or more processors, data indicating one or more changes to the group score over time. 
+     
+     
+         11 . The method of  claim 6 , further comprising:
+ designating, by the one or more processors. a second plurality of users of the program as a control group; and   for each individual user of the second plurality of users, transmitting, by the one or more processors, a randomly selected user-specific parameter setting update to the program; and   receiving, by the one or more processors, performance information indicating performance of the program for the second plurality of users after the randomly selected user-specific parameter setting update.   
+     
+     
+         12 . The method of  claim 11 , further comprising, in response to receiving the performance information for the first and second pluralities of users:
+ calculating, by the one or more processors, a test group score for the first plurality of users, wherein a higher test group score is indicative of greater fulfillment of the objective; and   calculating, by the one or more processors, a control group score for the second plurality of users, wherein a higher control group score is indicative of greater fulfillment of the objective.   
+     
+     
+         13 . The method of  claim 12 , further comprising, in response to a request for analysis of the parameter update event, transmitting, by the one or more processors, data providing a comparison between the test group score and the control group score. 
+     
+     
+         14 . The method of  claim 1 , wherein the program is one of a mobile device application or a web application, wherein transmitting the first parameter settings to the program comprises transmitting the first parameter settings to the mobile device application at a plurality of mobile devices or to the web application. 
+     
+     
+         15 . A system for conducting a parameter update event comprising:
+ one or more processors; and   memory storing instructions configured to cause the one or more processors to:
+ transmit first parameter settings to an application used by a first plurality of users; 
+ receive performance information indicating performance of the application after the first parameter setting, wherein the performance information for each individual user of the first plurality of users is separately identifiable; 
+ for each individual user of the first plurality of users:
+ determine a parameter setting update based at least in part on the performance information of the individual user; and 
+ transmit the parameter setting update to the application of the individual user. 
+ 
+   
+     
+     
+         16 . The system of  claim 15 , wherein the instructions are configured to cause the one or more processors to repeatedly receive performance information, determine a parameter setting update, and transmit the parameter setting update periodically according to a predetermined frequency for updating the application. 
+     
+     
+         17 . The system of  claim 16 , wherein the instructions comprise a machine learning algorithm to determine the parameter setting update. 
+     
+     
+         18 . The system of  claim 17 , wherein the machine learning algorithm is a linear regression model trained on at least one of: past performance information of the individual user before the first parameter setting; performance information of other users of the first plurality of users before the first parameter setting; or performance information of other users of the first plurality of users after the first parameter setting. 
+     
+     
+         19 . The system of  claim 17 , wherein the instructions are configured to cause the one or more processors to:
+ designate a second plurality of users as a control group;   for each individual user of the second plurality of users, transmit a random parameter setting update for the individual user;   receive performance information indicating performance of the application for the second plurality of users after the random parameter setting update.   
+     
+     
+         20 . The system of  claim 19 , wherein the instructions are configured to cause the one or more processors to, in response to a request for analysis of the parameter update event, transmit data providing a comparison between the performance information from the second plurality of users and the performance information from the first plurality of users.",GOOGLE LLC,20230216,['G06N20/00' 'G06F8/65'],0.12958885540193077,0.18055226076082154,0.21164578985978183,0.1663856044370573
+US-2023004761-A1,Generating change request classification explanations,An approach for generating actionable explanations of change request classifications may be presented. A model may generate features associated with a change request may be disclosed. The model may be trained with historical change requests that have been labeled risky or not risky. The change request may be classified as risky or not risky. Candidate historical change requests with the same classification as the change request and occupying similar feature space as the change request may be identified from a historical change request repository. One or more features which had the most significant impact on the classification may be identified. A candidate historical change request with at least one significant feature impacting classification may be identified.,"What is claimed is: 
+     
+         1 . A computer-implemented method for generating actionable change request risk classifications, the method comprising:
+ extracting, by a processor, a plurality of features from a change request, based on a trained model;   classifying the change request as risky or not risky, based on the extracted features;   identifying one or more candidate historical change requests with at least one similar feature as the change request and with the same classification as the change request;   detecting which features of the change request had the most significant impact on the classification of the change request;   analyzing the relevance of the candidate historical change requests, based on the detected features that had the most significant impact on the classification of the change request; and   identifying a relevant candidate historical change request, based on the analysis.   
+     
+     
+         2 . The computer-implemented method of  claim 1 , further comprising:
+ training the model with a plurality of historical change requests, wherein the historical change requests are labeled risky or not risky.   
+     
+     
+         3 . The computer-implemented method of  claim 1 , wherein identifying one or more candidate historical change further comprises:
+ searching, by a processor, a historical change request database via an Elastisearch.   
+     
+     
+         4 . The computer-implemented method of  claim 1 , wherein detecting the most significant features, utilizes an explainability algorithm. 
+     
+     
+         5 . The computer-implemented method of  claim 4 , wherein the explainability algorithm is based on a local interpretable model-agnostic explanation. 
+     
+     
+         6 . The computer-implemented method of  claim 1 , wherein the plurality of features are embedding representations. 
+     
+     
+         7 . The computer-implemented method of  claim 1 , further comprising:
+ transforming the change request into a computer readable format, based on a natural language processing model.   
+     
+     
+         8 . A computer system for generating actionable change request risk classifications, the method comprising:
+ a processor;   a readable storage media; and   computer program instructions to:
+ extract a plurality of features from a change request, based on a trained model; 
+ classify the change request as risky or not risky, based on the extracted features; 
+ identify one or more candidate historical change requests with at least one similar feature as the change request and with the same classification as the change request; 
+ detect which features of the change request had the most significant impact on the classification of the change request; 
+ analyze the relevance of the candidate historical change requests, based on the detected features that had the most significant impact on the classification of the change request; and 
+ identify a relevant candidate historical change request, based on the analysis. 
+   
+     
+     
+         9 . The computer system of  claim 8 , further comprising instructions to:
+ train the model with a plurality of historical change requests, wherein the historical change requests are labeled risky or not risky.   
+     
+     
+         10 . The computer system of  claim 8 , wherein identifying one or more candidate historical change further comprises instructions to:
+ search a historical change request database via an Elastisearch.   
+     
+     
+         11 . The computer system of  claim 8 , wherein detecting the most significant features, utilizes an explainability algorithm. 
+     
+     
+         12 . The computer system of  claim 11 , wherein the explainability algorithm is based on a local interpretable model-agnostic explanation. 
+     
+     
+         13 . The computer system of  claim 8 , wherein the plurality of features are embedding representations. 
+     
+     
+         14 . The computer system of  claim 8 , further comprising instructions to:
+ transforming the change request into a computer readable format, based on a natural language processing model.   
+     
+     
+         15 . A computer program product for generating actionable change request risk classifications having program instructions embodied therewith, the program instructions executable by a processor to cause the processors to perform a function, the function comprising:
+ extract a plurality of features from a change request, based on a trained model;   classify the change request as risky or not risky, based on the extracted features;   identify one or more candidate historical change requests with at least one similar feature as the change request and with the same classification as the change request;   detect which features of the change request had the most significant impact on the classification of the change request;   analyze the relevance of the candidate historical change requests, based on the detected features that had the most significant impact on the classification of the change request; and   identify a relevant candidate historical change request, based on the analysis.   
+     
+     
+         16 . The computer program product of  claim 15 , further comprising program instructions to:
+ train the model with a plurality of historical change requests, wherein the historical change requests are labeled risky or not risky.   
+     
+     
+         17 . The computer program product of  claim 15 , wherein identifying one or more candidate historical change further comprise program instructions to:
+ search a historical change request database via an Elastisearch.   
+     
+     
+         18 . The computer program product of  claim 15 , wherein detecting the most significant features, utilizes an explainability algorithm. 
+     
+     
+         19 . The computer system of  claim 18 , wherein the explainability algorithm is based on a local interpretable model-agnostic explanation. 
+     
+     
+         20 . The computer program product of  claim 16 , further comprising program instructions to:
+ transforming the change request into a computer readable format, based on a natural language processing model.",IBM,20230105,['G06N20/00'],0.1418853938804422,0.1661187768865826,0.21083330082438367,0.16536832847168667
+US-2022382981-A1,Dependency tree-based data augmentation for sentence well-formedness judgement,"A computer-implemented method, a computer program product, and a computer system for dependency tree-based data augmentation for sentence well-formedness judgement. A computer applies a dependency parser to generate a dependency tree for a sentence. The computer removes one or more nodes in the dependency tree, according to a removal ratio for a predetermined rating score. The computer generates, from the dependency tree, a partial tree for the sentence. The computer outputs a rated sentence based on the partial tree. The rated sentence is used as training data.","What is claimed is: 
+     
+         1 . A computer-implemented method for dependency tree-based data augmentation for sentence well-formedness judgement, the method comprising:
+ applying a dependency parser to generate a dependency tree for a sentence;   removing one or more nodes in the dependency tree, according to a removal ratio for a predetermined rating score;   generating, from the dependency tree, a partial tree for the sentence;   outputting a rated sentence based on the partial tree; and   wherein the rated sentence is used as training data.   
+     
+     
+         2 . The computer-implemented method of  claim 1 , further comprising:
+ receiving inputs including a set of sentences, the predetermined rating scores, and the set of removal ratios for respective ones of the predetermined rating scores.   
+     
+     
+         3 . The computer-implemented method of  claim 1 , further comprising:
+ generating rated sentences for respective sentences in a set of sentences, wherein the rated sentences are used as training data.   
+     
+     
+         4 . The computer-implemented method of  claim 1 , further comprising:
+ applying the dependency parser to sentences in an arbitrary collection of texts;   counting frequencies of respective dependency relations;   choosing a predetermined number of most frequent dependency tags;   determining an average depth of each of the most frequent dependency tags;   re-ranking the most frequent dependency tags, according to average depths of respective ones of the most frequent dependency tags; and   assigning the predetermined rating scores to the most frequent dependency tags, according to the average depths.   
+     
+     
+         5 . The computer-implemented method of  claim 4 , further comprising:
+ for each of the predetermined rating scores, randomly sampling tokens that are to be removed from the dependency tree, according to the removal ratio.   
+     
+     
+         6 . The computer-implemented method of  claim 4 , further comprising:
+ for each of the predetermined rating scores, constructing a dependency tag probability distribution; and   sampling tokens that are to be removed from the dependency tree, according to the removal ratio and the dependency tag probability distribution.   
+     
+     
+         7 . The computer-implemented method of  claim 4 , wherein the average depth is determined by averaging depths of the each of the most frequent dependency tags in directed dependency trees. 
+     
+     
+         8 . A computer program product for dependency tree-based data augmentation for sentence well-formedness judgement, the computer program product comprising a computer readable storage medium having program instructions embodied therewith, the program instructions executable by one or more processors, the program instructions executable to:
+ apply a dependency parser to generate a dependency tree for a sentence;   remove one or more nodes in the dependency tree, according to a removal ratio for a predetermined rating score;   generate, from the dependency tree, a partial tree for the sentence;   output a rated sentence based on the partial tree; and   wherein the rated sentence is used as training data.   
+     
+     
+         9 . The computer program product of  claim 8 , further comprising the program instructions executable to:
+ receive inputs including a set of sentences, the predetermined rating scores, and the set of removal ratios for respective ones of the predetermined rating scores.   
+     
+     
+         10 . The computer program product of  claim 8 , further comprising the program instructions executable to:
+ generate rated sentences for respective sentences in a set of sentences, wherein the rated sentences are used as training data.   
+     
+     
+         11 . The computer program product of  claim 8 , further comprising the program instructions executable to:
+ apply the dependency parser to sentences in an arbitrary collection of texts;   count frequencies of respective dependency relations;   choose a predetermined number of most frequent dependency tags;   determine an average depth of each of the most frequent dependency tags;   re-rank the most frequent dependency tags, according to average depths of respective ones of the most frequent dependency tags; and   assign the predetermined rating scores to the most frequent dependency tags, according to the average depths.   
+     
+     
+         12 . The computer program product of  claim 11 , further comprising the program instructions executable to:
+ for each of the predetermined rating scores, randomly sample tokens that are to be removed from the dependency tree, according to the removal ratio.   
+     
+     
+         13 . The computer program product of  claim 11 , further comprising program instructions executable to:
+ for each of the predetermined rating scores, construct a dependency tag probability distribution; and   sample tokens that are to be removed from the dependency tree, according to the removal ratio and the dependency tag probability distribution.   
+     
+     
+         14 . The computer program product of  claim 11 , wherein the average depth is determined by averaging depths of the each of the most frequent dependency tags in directed dependency trees. 
+     
+     
+         15 . A computer system for dependency tree-based data augmentation for sentence well-formedness judgement, the computer system comprising one or more processors, one or more computer readable tangible storage devices, and program instructions stored on at least one of the one or more computer readable tangible storage devices for execution by at least one of the one or more processors, the program instructions executable to:
+ apply a dependency parser to generate a dependency tree for a sentence;   remove one or more nodes in the dependency tree, according to a removal ratio for a predetermined rating score;   generate, from the dependency tree, a partial tree for the sentence;   output a rated sentence based on the partial tree; and   wherein the rated sentence is used as training data.   
+     
+     
+         16 . The computer system of  claim 15 , further comprising the program instructions executable to:
+ receive inputs including a set of sentences, the predetermined rating scores, and the set of removal ratios for respective ones of the predetermined rating scores.   
+     
+     
+         17 . The computer system of  claim 15 , further comprising the program instructions executable to:
+ generate rated sentences for respective sentences in a set of sentences, wherein the rated sentences are used as training data.   
+     
+     
+         18 . The computer system of  claim 15 , further comprising the program instructions executable to:
+ apply the dependency parser to sentences in an arbitrary collection of texts;   count frequencies of respective dependency relations;   choose a predetermined number of most frequent dependency tags;   determine an average depth of each of the most frequent dependency tags;   re-rank the most frequent dependency tags, according to average depths of respective ones of the most frequent dependency tags; and   assign the predetermined rating scores to the most frequent dependency tags, according to the average depths.   
+     
+     
+         19 . The computer system of  claim 18 , further comprising the program instructions executable to:
+ for each of the predetermined rating scores, randomly sample tokens that are to be removed from the dependency tree, according to the removal ratio.   
+     
+     
+         20 . The computer system of  claim 18 , further comprising program instructions executable to:
+ for each of the predetermined rating scores, construct a dependency tag probability distribution; and   sample tokens that are to be removed from the dependency tree, according to the removal ratio and the dependency tag probability distribution.   
+     
+     
+         21 . The computer system of  claim 18 , wherein the average depth is determined by averaging depths of the each of the most frequent dependency tags in directed dependency trees. 
+     
+     
+         22 . A computer-implemented method for dependency tree-based data augmentation for sentence well-formedness judgement, the method comprising:
+ applying a dependency parser to generate a dependency tree for a sentence;   sampling tokens that are to be removed from the dependency tree, according to a removal ratio for a predetermined rating score and a dependency tag probability distribution;   removing one or more nodes in the dependency tree, according to sampled tokens;   generating, from the dependency tree, a partial tree for the sentence;   outputting a rated sentence based on the partial tree; and   wherein the rated sentence is used as training data.   
+     
+     
+         23 . The computer-implemented method of  claim 22 , further comprising:
+ applying the dependency parser to sentences in an arbitrary collection of texts;   counting frequencies of respective dependency relations;   choosing a predetermined number of most frequent dependency tags;   determining an average depth of each of the most frequent dependency tags, by averaging depths of the each of the most frequent dependency tags in directed dependency trees;   re-ranking the most frequent dependency tags, according to average depths of respective ones of the most frequent dependency tags;   assigning the predetermined rating scores to the most frequent dependency tags, according to the average depths; and   for each of the predetermined rating scores, constructing the dependency tag probability distribution.   
+     
+     
+         24 . A computer program product for dependency tree-based data augmentation for sentence well-formedness judgement, the computer program product comprising a computer readable storage medium having program instructions embodied therewith, the program instructions executable by one or more processors, the program instructions executable to:
+ apply a dependency parser to generate a dependency tree for a sentence;   sample tokens that are to be removed from the dependency tree, according to a removal ratio for a predetermined rating score and a dependency tag probability distribution;   remove one or more nodes in the dependency tree, according to sampled tokens;   generate, from the dependency tree, a partial tree for the sentence;   output a rated sentence based on the partial tree; and   wherein the rated sentence is used as training data.   
+     
+     
+         25 . The computer program product of  claim 24 , further comprising the program instructions executable to:
+ apply the dependency parser to sentences in an arbitrary collection of texts;   count frequencies of respective dependency relations;   choose a predetermined number of most frequent dependency tags;   determine an average depth of each of the most frequent dependency tags, by averaging depths of the each of the most frequent dependency tags in respective directed dependency trees;   re-rank the most frequent dependency tags, according to average depths of respective ones of the most frequent dependency tags;   assign the predetermined rating scores to the most frequent dependency tags, according to the average depths; and   for each of the predetermined rating scores, construct the dependency tag probability distribution.",IBM,20221201,['G06N7/00' 'G06N20/00' 'G06F40/205' 'G06F40/289'],0.11777455733478609,0.17444370034165219,0.2228321094729949,0.1614537249651743
+US-2022213561-A1,Detecting mutations and ploidy in chromosomal segments,"The invention provides methods, systems, and computer readable medium for detecting ploidy of chromosome segments or entire chromosomes, for detecting single nucleotide variants and for detecting both ploidy of chromosome segments and single nucleotide variants. In some aspects, the invention provides methods, systems, and computer readable medium for detecting cancer or a chromosomal abnormality in a gestating fetus.","What is claimed is: 
+     
+         1 . A method for detecting one or more single nucleotide variant (SNV) mutations in a plasma sample of a subject having cancer or suspected of having cancer, the method comprising:
+ identifying a plurality of tumor-specific SNV mutations in a tumor sample of the subject by whole exome sequencing or whole genome sequencing;   performing targeted multiplex amplification to amplify at least 20 target loci each encompassing a different tumor-specific SNV mutation from the cell-free DNA isolated from a plasma sample of the subject or DNA derived therefrom to obtain amplicons, wherein the target loci are amplified together in the same reaction volume; and   performing high-throughput sequencing to sequence the amplicons to obtain sequence reads, and detecting one or more of the tumor-specific SNV mutations present in the cell-free DNA from the sequence reads.   
+     
+     
+         2 . The method of  claim 1 , wherein the high-throughput sequencing has a depth of read of at least 50,000 per target locus. 
+     
+     
+         3 . The method of  claim 1 , wherein the cell-free DNA comprises circulating tumor DNA. 
+     
+     
+         4 . The method of  claim 1 , wherein the SNV mutations comprise one or more clonal SNV mutations. 
+     
+     
+         5 . The method of  claim 1 , wherein the SNV mutations comprise one or more subclonal SNV mutations. 
+     
+     
+         6 . The method of  claim 1 , wherein the SNV mutations comprise one or more clonal SNV mutations and one or more subclonal SNV mutations. 
+     
+     
+         7 . The method of  claim 1 , wherein the tumor sample of the subject is a tumor tissue sample. 
+     
+     
+         8 . The method of  claim 1 , wherein the method further comprises determining clonal heterogeneity of the tumor sample. 
+     
+     
+         9 . The method of  claim 1 , wherein the targeted multiplex amplification amplifies 20 to 50 target loci each encompassing a different tumor-specific SNV mutation. 
+     
+     
+         10 . The method of  claim 1 , wherein the targeted multiplex amplification amplifies 50 to 100 target loci each encompassing a different tumor-specific SNV mutation. 
+     
+     
+         11 . The method of  claim 1 , wherein the method further comprises designing patient-specific PCR primers or hybrid capture probes targeting the plurality of SNV mutations identified in the tumor sample. 
+     
+     
+         12 . The method of  claim 1 , wherein the method further comprises performing barcoding PCR prior to the high-throughput sequencing. 
+     
+     
+         13 . The method of  claim 1 , wherein the method further comprises detecting recurrence and/or metastases of the cancer from the SNV mutations detected in the cell-free DNA. 
+     
+     
+         14 . The method of  claim 1 , wherein the cancer is colorectal cancer, lung cancer, bladder cancer, or breast cancer. 
+     
+     
+         15 . The method of  claim 1 , wherein an SNV mutation that is present in less than or equal to 0.015% of the cell-free DNA comprising the SNV locus is detected from the sequence reads.",NATERA INC,20220707,"['C12Q1/6886' 'C12Q1/6869' 'G16B20/00' 'G16B15/00' 'G16B20/10' 'G16B40/00'
+ 'G16B20/20' 'G16H10/40' 'G16H50/20' 'G06N7/00' 'G06N20/00' 'G16B40/20'
+ 'G16B25/00' 'G16Z99/00']",0.13333764348885113,0.16031711448391417,0.19599922079200088,0.15666174734750632
+US-2022366371-A1,Context-Independent Conversational Flow,"A method, apparatus, system, and computer program code for performing a human resource operation using a context-independent conversational flow. The computer system receives an intended human resource operation from an application executing on a user device, identifies the context-independent conversational flow for performing an intended human resource operation, and calls a structured data object according to the context-independent conversational flow. The computer system interprets the structured data object to produce a business rule output, and generates a context-independent response from the business rule output. The computer system transforms the context-independent response according to a user context to produce a context-specific response, and forwards the context-specific response to a user device for display within a conversational user interface of an application.","What is claimed is: 
+     
+         1 . A method for performing a human resource operation using a context-independent conversational flow, the method comprising:
+ receiving an intended human resource operation from an application executing on a user device;   identifying the context-independent conversational flow for performing the intended human resource operation;   calling a structured data object according to the context-independent conversational flow, wherein the structured data object implements a set of business rules for performing the intended human resource operation;   interpreting the structured data object to produce a business rule output;   generating an context-independent response from the business rule output, wherein the context-independent response is generated according to the context-independent conversational flow;   transforming the context-independent response according to a user context to produce a context-specific response, wherein the user context includes a context of the application and a context of the user device; and   forwarding the context-specific response to the user device for display within a conversational user interface of the application.   
+     
+     
+         2 . The method of  claim 1 , further comprising:
+ identifying, by a computer system, the user context in a message received from the application that is executing on the user device; and   determining, by the computer system, the intended human resource operation from the message.   
+     
+     
+         3 . The method of  claim 2 , wherein determining the intended human resource operation further comprises:
+ determining, using an artificial intelligence system in the computer system, an intent using a set of machine-learning models trained from a set of existing messages, existing business rules, existing conversational flows, and a dictionary of HCM verbiage;   predicting a set of intended operations, using the artificial intelligence system based on the intent determined by the artificial intelligence system; and   forwarding the set of intended operations to the user device to be displayed within the conversational user interface of the application.   
+     
+     
+         4 . The method of  claim 3 , wherein predicting the set of intended operations comprises:
+ computing a probability density function for each of the set of intended operations predicted by the artificial intelligence system; and   calculating a weighted average of the probability density functions.   
+     
+     
+         5 . The method of  claim 4 , wherein displaying the set of intended operations comprises:
+ ranking, by the computer system, the set of intended operations based on the weighted average to form a ranked order; and   displaying, by the computer system, the set of intended operations in the conversational user interface according to the ranked order.   
+     
+     
+         6 . The method of  claim 3 , wherein determining the intended human resource operation further comprises:
+ receiving a selection of the intended human resource operation from the application that is executing on the user device; and   identifying the context-independent conversational flow based on the selection.   
+     
+     
+         7 . The method of  claim 1 , wherein the structured data object comprises a set of composable data nodes that are composed according to a domain-specific language to form the structured data object. 
+     
+     
+         8 . The method of  claim 1 , wherein transforming the context-independent response further comprises:
+ intercepting the context-independent response at a local mapping service that is defined with a service provider endpoint; and   applying a service map to the context-independent response, wherein the service map is used to select transform the context-independent response according to an application context to match the conversational user interface of the application as displayed on the user device.   
+     
+     
+         9 . The method of  claim 8 , wherein forwarding the context-specific response to the user device further comprises:
+ forwarding the context-specific response from the local mapping service to the user device.   
+     
+     
+         10 . A computer system comprising:
+ a hardware processor; and   a human resource management system, in communication with the hardware processor, for performing a human resource operation using a context-independent conversational flow, wherein the human resource management system is configured:
+ to identify the context-independent conversational flow for performing an intended human resource operation; 
+ to call a structured data object according to the context-independent conversational flow, wherein the structured data object implements a set of business rules for performing the intended human resource operation; 
+ to interpret the structured data object to produce a business rule output; 
+ to generate an context-independent response from the business rule output, wherein the context-independent response is generated according to the context-independent conversational flow; 
+ to transform the context-independent response according to an application context to produce a context-specific response; and 
+ to forward the context-specific response to a user device for display within a conversational user interface of an application. 
+   
+     
+     
+         11 . The computer system of  claim 10 , wherein the human resource management system is further configured:
+ to identify the application context in a message received from the application that is executing on the user device; and   to determine the intended human resource operation from the message.   
+     
+     
+         12 . The computer system of  claim 11 , wherein in determining the intended human resource operation, the human resource management system is further configured:
+ to determine, using an artificial intelligence system in the computer system, an intent using a set of machine-learning models trained from a set of existing messages, existing business rules, existing conversational flows, and a dictionary of HCM verbiage;   to predict a set of intended operations, using the artificial intelligence system based on the intent determined by the artificial intelligence system; and   to forward the set of intended operations to the user device to be displayed within the conversational user interface of the application.   
+     
+     
+         13 . The computer system of  claim 12 , wherein in predicting the set of intended operations, the human resource management system is further configured:
+ to compute a probability density function for each of the set of intended operations predicted by the artificial intelligence system; and   to calculate a weighted average of the probability density functions.   
+     
+     
+         14 . The computer system of  claim 13 , wherein in displaying the set of intended operations, the human resource management system is further configured:
+ to rank the set of intended operations based on the weighted average to form a ranked order; and   to display the set of intended operations in the conversational user interface according to the ranked order.   
+     
+     
+         15 . The computer system of  claim 12 , wherein in determining the intended human resource operation, the human resource management system is further configured:
+ to receive a selection of the intended human resource operation from the application that is executing on the user device; and   to identify the context-independent conversational flow based on the selection.   
+     
+     
+         16 . The computer system of  claim 10 , wherein the structured data object comprises a set of composable data nodes that are composed according to a domain-specific language to form the structured data object. 
+     
+     
+         17 . The computer system of  claim 10 , wherein in transforming the context-independent response, the human resource management system is further configured:
+ to intercept the context-independent response at a local mapping service that is defined with a service provider endpoint; and   to apply a service map to the context-independent response, wherein the service map is used to select transform the context-independent response according to the application context to match the conversational user interface of the application as displayed on the user device.   
+     
+     
+         18 . The computer system of  claim 17 , wherein in forwarding the context-specific response to the user device, the human resource management system is further configured:
+ to forward the context-specific response from the local mapping service to the user device.   
+     
+     
+         19 . A computer program product comprising:
+ a computer readable storage media; and   program code, stored on the computer readable storage media, for performing a human resource operation using a context-independent conversational flow, the program code comprising:
+ program code for identifying the context-independent conversational flow for performing the intended human resource operation; 
+ program code for calling a structured data object according to the context-independent conversational flow, wherein the structured data object implements a set of business rules for performing the intended human resource operation; 
+ program code for interpreting the structured data object to produce a business rule output; 
+ program code for generating an context-independent response from the business rule output, wherein the context-independent response is generated according to the context-independent conversational flow; 
+ program code for transforming the context-independent response according to an application context to produce a context-specific response; and 
+ program code for forwarding the context-specific response to a user device for display within a conversational user interface of an application. 
+   
+     
+     
+         20 . The computer program product of  claim 19 , further comprising:
+ program code for identifying, by a computer system, the application context in a message received from the application that is executing on the user device; and   program code for determining, by the computer system, the intended human resource operation from the message.   
+     
+     
+         21 . The computer program product of  claim 20 , wherein the program code for determining the intended human resource operation further comprises:
+ program code for determining, using an artificial intelligence system in the computer system, an intent using a set of machine-learning models trained from a set of existing messages, existing business rules, existing conversational flows, and a dictionary of HCM verbiage;   program code for predicting a set of intended operations, using the artificial intelligence system based on the intent determined by the artificial intelligence system; and   program code for forwarding the set of intended operations to the user device to be displayed within the conversational user interface of the application.   
+     
+     
+         22 . The computer program product of  claim 21 , wherein the program code for predicting the set of intended operations comprises:
+ program code for computing a probability density function for each of the set of intended operations predicted by the artificial intelligence system; and   program code for calculating a weighted average of the probability density functions.   
+     
+     
+         23 . The computer program product of  claim 22 , wherein the program code for displaying the set of intended operations comprises:
+ program code for ranking, by the computer system, the set of intended operations based on the weighted average to form a ranked order; and   program code for displaying, by the computer system, the set of intended operations in the conversational user interface according to the ranked order.   
+     
+     
+         24 . The computer program product of  claim 21 , wherein the program code for determining the intended human resource operation further comprises:
+ program code for receiving a selection of the intended human resource operation from the application that is executing on the user device; and   program code for identifying the context-independent conversational flow based on the selection.   
+     
+     
+         25 . The computer program product of  claim 19 , wherein the structured data object comprises a set of composable data nodes that are composed according to a domain-specific language to form the structured data object. 
+     
+     
+         26 . The computer program product of  claim 19 , wherein the program code for transforming the context-independent response further comprises:
+ program code for intercepting the context-independent response at a local mapping service that is defined with a service provider endpoint; and   program code for applying a service map to the context-independent response, wherein the service map is used to select transform the context-independent response according to the application context to match the conversational user interface of the application as displayed on the user device.   
+     
+     
+         27 . The computer program product of  claim 26 , wherein the program code for forwarding the context-specific response to the user device further comprises:
+ program code for forwarding the context-specific response from the local mapping service to the user device.",ADP LLC,20221117,['G06F40/263' 'G06Q10/10' 'G06N20/20' 'G06F9/451' 'G06F16/2457'],0.10355554486725621,0.15471088520934,0.20602965247239452,0.14451250252511738

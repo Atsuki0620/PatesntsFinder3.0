@@ -1,3 +1,45 @@
-{"query_id": "image_recognition_ai_001", "question": "AIを用いた画像認識技術に関する特許を検索してください。", "search_query": {"ipc_codes": ["G06V 10/70"], "keywords": ["image recognition", "AI", "deep learning"], "limit": 10}, "expected_ids": ["US-10002305-B2", "US-20230237689-A1", "US-11062249-B2"], "ground_truths_text": ["AIが画像から特定の物体を認識する技術に関する特許。", "深層学習を用いた画像分類技術の進歩に関する特許。"]}
-{"query_id": "water_filtration_membrane_002", "question": "水ろ過膜技術に関する特許を検索してください。特に逆浸透膜に焦点を当ててください。", "search_query": {"ipc_codes": ["B01D 61/00"], "keywords": ["water filtration", "membrane", "reverse osmosis"], "publication_date_from": "20100101", "limit": 5}, "expected_ids": ["US-9876543-B2", "JP-2015123456-A"], "ground_truths_text": ["逆浸透膜を用いた高効率な水処理技術に関する特許。", "膜分離技術の最新動向と応用に関する特許。"]}
-{"query_id": "autonomous_driving_sensor_fusion_003", "question": "自動運転におけるセンサーフュージョン技術の特許を調べてください。カメラとLiDARの組み合わせに興味があります。", "search_query": {"ipc_codes": ["G05D 1/00", "G06K 9/00"], "keywords": ["autonomous driving", "sensor fusion", "camera", "LiDAR"], "limit": 8}, "expected_ids": ["US-20200123456-A1", "EP-3456789-B1", "KR-1020180001234-A"], "ground_truths_text": ["自動運転車におけるカメラとLiDARデータ統合による環境認識技術。", "複数のセンサー情報を用いた高精度な自己位置推定技術。"]}
+{
+    "query_id": "image_recognition_ai_001", 
+    "question": "AIを用いた画像認識技術に関する特許を検索してください。", 
+    "search_query": {"ipc_codes": ["G06V 10/70"], "keywords": ["image recognition", "AI", "deep learning"], "limit": 10}, 
+    "expected_ids": ["US-10002305-B2", "US-20230237689-A1", "US-11062249-B2"], 
+    "ground_truths_text": ["AIが画像から特定の物体を認識する技術に関する特許。", "深層学習を用いた画像分類技術の進歩に関する特許。"]
+}
+{
+    "query_id": "water_filtration_membrane_002", 
+    "question": "水ろ過膜技術に関する特許を検索してください。特に逆浸透膜に焦点を当ててください。", 
+    "search_query": {"ipc_codes": ["B01D 61/00"], "keywords": ["water filtration", "membrane", "reverse osmosis"], "publication_date_from": "20100101", "limit": 5}, 
+    "expected_ids": ["US-9876543-B2", "JP-2015123456-A"], 
+    "ground_truths_text": ["逆浸透膜を用いた高効率な水処理技術に関する特許。", "膜分離技術の最新動向と応用に関する特許。"]
+}
+{
+    "query_id": "autonomous_driving_sensor_fusion_003", 
+    "question": "自動運転におけるセンサーフュージョン技術の特許を調べてください。カメラとLiDARの組み合わせに興味があります。", 
+    "search_query": {"ipc_codes": ["G05D 1/00", "G06K 9/00"], "keywords": ["autonomous driving", "sensor fusion", "camera", "LiDAR"], "limit": 8}, 
+    "expected_ids": ["US-20200123456-A1", "EP-3456789-B1", "KR-1020180001234-A"], 
+    "ground_truths_text": ["自動運転車におけるカメラとLiDARデータ統合による環境認識技術。", "複数のセンサー情報を用いた高精度な自己位置推定技術。"]
+}
+{
+  "query_id": "perovskite_solar_cell_001",
+  "question": "ペロブスカイト太陽電池の効率と安定性向上に関する最近の技術を探してください。",
+  "search_query": {
+    "ipc_codes": ["H01L 51/42", "H01G 9/20"],
+    "keywords": ["perovskite solar cell", "photovoltaic", "efficiency", "stability"],
+    "publication_date_from": "20180101",
+    "limit": 5
+  },
+  "expected_ids": ["US-2023012345-A1", "WO-202298765-A1"],
+  "ground_truths_text": ["ペロブスカイト層の欠陥を抑制し、長期安定性を高めるための添加剤に関する特許。", "電子輸送層の材料を改良し、光電変換効率を向上させる技術。"]
+}
+{
+  "query_id": "crispr_cancer_therapy_001",
+  "question": "CRISPR-Cas9を用いたがん治療、特にCAR-T細胞療法への応用に関する特許を調査してください。",
+  "search_query": {
+    "ipc_codes": ["C12N 15/90", "A61P 35/00"],
+    "keywords": ["CRISPR", "Cas9", "gene editing", "cancer therapy", "CAR-T"],
+    "publication_date_from": "20190101",
+    "limit": 5
+  },
+  "expected_ids": ["US-11223344-B2", "EP-3456789-A1"],
+  "ground_truths_text": ["CAR-T細胞の特定遺伝子をCRISPRでノックアウトし、副作用を低減する技術。", "オフターゲット効果を抑制する新しいCas9変異体に関する特許。"]
+}

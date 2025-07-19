@@ -5,7 +5,7 @@
 ## 前提条件
 
 *   Gitがインストールされており、ターミナルから利用できること。
-*   GitHubに新しい空のリポジトリが作成済みであること（例: `https://github.com/Atsuki0620/PatentsFinder3.0.git`）。
+*   GitHubに新しい空のリポジトリが作成済みであること（例: `https://github.com/Atsuki0620/PatentsFinder2.1.git`）。
 
 ## 手順
 

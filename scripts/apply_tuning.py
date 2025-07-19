@@ -1,68 +1,42 @@
-
-import argparse
-import yaml
+import os
+import sys
 from pathlib import Path
-from loguru import logger
+import yaml
+import argparse
 
-logger.remove()
-logger.add(
-    "logs/apply_tuning.log",
-    format="{time} {level} {message}",
-    rotation="10 MB",
-    compression="zip",
-    level="INFO"
-)
+# このスクリプト自身の場所を基準にプロジェクトルートを特定
+project_root = Path(__file__).resolve().parent.parent
+sys.path.append(str(project_root))
 
-def apply_tuning_suggestion(suggestion_path: Path, weights_path: Path):
-    """チューニング提案をweights.yamlに適用する"""
-    logger.info(f"Loading tuning suggestion from: {suggestion_path}")
-    with open(suggestion_path, 'r', encoding='utf-8') as f:
-        suggestion_content = f.read()
-    
-    # 提案内容からYAML部分を抽出
-    # 仮実装では、提案全体がYAML形式であると仮定
+def apply_new_weights(suggestion_path: Path, target_path: Path):
+    """
+    提案された重みを設定ファイルに適用する。
+    """
     try:
-        suggested_config = yaml.safe_load(suggestion_content)
-    except yaml.YAMLError as e:
-        logger.error(f"Failed to parse tuning suggestion as YAML: {e}")
-        return
-
-    logger.info(f"Loading current weights from: {weights_path}")
-    with open(weights_path, 'r', encoding='utf-8') as f:
-        current_config = yaml.safe_load(f)
-
-    # 提案された変更を現在の設定にマージ
-    # ここではsimilarity_weightsのみを対象とする
-    if "similarity_weights" in suggested_config:
-        current_config["similarity_weights"] = suggested_config["similarity_weights"]
-        logger.info("Applied similarity_weights from suggestion.")
-    else:
-        logger.warning("No 'similarity_weights' found in the suggestion. No changes applied.")
-
-    logger.info(f"Saving updated weights to: {weights_path}")
-    with open(weights_path, 'w', encoding='utf-8') as f:
-        yaml.dump(current_config, f, indent=2, allow_unicode=True)
-    logger.info("Weights updated successfully.")
-
-def main(args):
-    try:
-        project_root = Path(__file__).resolve().parents[1]
-        suggestion_path = project_root / args.suggestion_file
-        weights_path = project_root / "config" / "weights.yaml"
+        # 1. 提案された重みを読み込む
+        with open(suggestion_path, 'r', encoding='utf-8') as f:
+            suggested_weights = yaml.safe_load(f)
         
-        apply_tuning_suggestion(suggestion_path, weights_path)
+        # 2. ターゲットファイルに書き込む
+        with open(target_path, 'w', encoding='utf-8') as f:
+            yaml.dump(suggested_weights, f, allow_unicode=True)
+            
+        print(f"Successfully applied new weights to: {target_path}")
+        print("New weights:")
+        print(yaml.dump(suggested_weights, allow_unicode=True))
 
+    except FileNotFoundError:
+        print(f"Error: Suggestion file not found at {suggestion_path}")
     except Exception as e:
-        logger.exception("An unexpected error occurred in apply_tuning.py")
-
+        print(f"An error occurred: {e}")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Apply tuning suggestions to weights.yaml.")
-    parser.add_argument(
-        "--suggestion_file", 
-        type=str, 
-        required=True,
-        help="Path to the file containing the tuning suggestion (e.g., output from suggest_tuning.py)."
-    )
+    parser = argparse.ArgumentParser(description="Apply new suggested weights.")
+    parser.add_argument("--suggestion", type=str, default="suggested_weights.yaml")
+    parser.add_argument("--target", type=str, default="config/weights.yaml")
     args = parser.parse_args()
-    main(args)
+
+    apply_new_weights(
+        project_root / args.suggestion,
+        project_root / args.target
+    )

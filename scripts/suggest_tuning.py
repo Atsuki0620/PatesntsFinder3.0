@@ -1,102 +1,85 @@
-
-import argparse
-import json
-from pathlib import Path
-from loguru import logger
-
-# このスクリプトの親ディレクトリをシステムパスに追加
+import os
 import sys
-sys.path.append(str(Path(__file__).resolve().parents[1]))
+from pathlib import Path
+import json
+import yaml
+import argparse
+from langchain_openai import ChatOpenAI
 
-# Gemini APIとの連携は後で実装
-# from gemini_api_client import GeminiClient # 仮
+# このスクリプト自身の場所を基準にプロジェクトルートを特定
+project_root = Path(__file__).resolve().parent.parent
+sys.path.append(str(project_root))
 
-logger.remove()
-logger.add(
-    "logs/suggest_tuning.jsonl",
-    format="{message}",
-    serialize=True,
-    rotation="10 MB",
-    compression="zip",
-    level="INFO"
-)
+def suggest_new_weights(report_path: Path, current_weights_path: Path, output_path: Path):
+    """
+    評価レポートと現在の重みを基に、OpenAI APIに新しい重みを提案させる。
+    """
+    # 1. 評価レポートと現在の重みを読み込む
+    with open(report_path, 'r', encoding='utf-8') as f:
+        report = json.load(f)
+    with open(current_weights_path, 'r', encoding='utf-8') as f:
+        current_weights = yaml.safe_load(f)
 
-def load_metrics_report(path: Path) -> dict:
-    """メトリクスレポートを読み込む"""
-    with open(path, 'r', encoding='utf-8') as f:
-        return json.load(f)
+    # 2. OpenAI APIに投げるプロンプトを作成
+    prompt = f"""あなたは、特許検索システムの性能を最適化するAIアシスタントです。
+以下の評価レポートと現在の重み設定を分析し、`answer_relevancy`スコアを最大化するた���の新しい重み設定を提案してください。
 
-def suggest_tuning(metrics_report: dict, evaluation_log: List[dict]) -> str:
-    """Gemini APIにチューニング案を問い合わせる（仮実装）"""
-    logger.info("Requesting tuning suggestions from Gemini API...")
-    # ここにGemini API呼び出しロジックを実装
-    # 例: GeminiClient().generate_tuning_suggestion(metrics_report, evaluation_log)
-    
-    # 仮の応答
-    suggestion = """
-# Suggested changes for config/weights.yaml
+**制約条件:**
+- `title`, `abstract`, `claims` の3つのキーに対する重みを提案してください。
+- 3つの重みの合計は必ず `1.0` にしてください。
+- `faithfulness` スコアが `0.95` 未満にならないように、過度な調整は避けてください。
+- 出力はYAML形式のキーと値のみとし、他のテキストは含めないでください。
 
-similarity_weights:
-  title: 0.45
-  abstract: 0.35
-  claims: 0.20
+**評価レポート:**
+```json
+{json.dumps(report, indent=2, ensure_ascii=False)}
+```
 
-# Reason: Precision@5 was low. Increased title weight slightly to prioritize direct matches.
+**現在の重み設定:**
+```yaml
+{yaml.dump(current_weights, allow_unicode=True)}
+```
+
+**新しい重み設定案 (YAML形式):**
 """
-    logger.info("Received tuning suggestion from Gemini API.")
-    return suggestion
 
-def main(args):
+    # 3. OpenAI APIを呼び出す
+    print("--- Asking OpenAI for new weight suggestions... ---")
     try:
-        project_root = Path(__file__).resolve().parents[1]
-        metrics_report_path = project_root / args.metrics_report
-        evaluation_log_path = project_root / args.evaluation_log
+        # APIキーは環境変数 `OPENAI_API_KEY` から自動で読み込まれる
+        llm = ChatOpenAI(model="gpt-4o", temperature=0)
+        response = llm.invoke(prompt)
+        suggested_weights_str = response.content
+        print("--- OpenAI's Suggestion ---")
+        print(suggested_weights_str)
+        print("---------------------------")
+
+        # 4. 結果をパースしてファイルに保存
+        suggested_weights = yaml.safe_load(suggested_weights_str)
+        with open(output_path, 'w', encoding='utf-8') as f:
+            yaml.dump(suggested_weights, f, allow_unicode=True)
         
-        logger.info(f"Loading metrics report from: {metrics_report_path}")
-        metrics_report = load_metrics_report(metrics_report_path)
-        
-        logger.info(f"Loading evaluation log from: {evaluation_log_path}")
-        # evaluation_logはjsonl形式なので、行ごとに読み込む
-        evaluation_log = []
-        with open(evaluation_log_path, 'r', encoding='utf-8') as f:
-            for line in f:
-                evaluation_log.append(json.loads(line))
-        
-        tuning_suggestion = suggest_tuning(metrics_report, evaluation_log)
-        
-        logger.info("Tuning suggestion generated:")
-        logger.info(tuning_suggestion)
-        
-        # ここで提案をファイルに書き出すなどの処理を追加
-        if args.output_suggestion:
-            output_path = project_root / args.output_suggestion
-            output_path.parent.mkdir(parents=True, exist_ok=True)
-            with open(output_path, 'w', encoding='utf-8') as f:
-                f.write(tuning_suggestion)
-            logger.info(f"Tuning suggestion saved to: {output_path}")
+        print(f"Successfully saved suggested weights to: {output_path}")
 
     except Exception as e:
-        logger.exception("An unexpected error occurred in suggest_tuning.py")
+        print(f"An error occurred while calling OpenAI API: {e}")
+        print("Creating a dummy suggestion file instead.")
+        # エラーが発生した場合はダミーファイルを作成
+        dummy_weights = {"similarity_weights": {"title": 0.5, "abstract": 0.4, "claims": 0.1}}
+        with open(output_path, 'w', encoding='utf-8') as f:
+            yaml.dump(dummy_weights, f, allow_unicode=True)
+        print(f"Saved dummy weights to: {output_path}")
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Suggest tuning parameters based on evaluation results.")
-    parser.add_argument(
-        "--metrics_report", 
-        type=str, 
-        default="reports/metrics_report.json",
-        help="Path to the metrics report file (json format)."
-    )
-    parser.add_argument(
-        "--evaluation_log", 
-        type=str, 
-        default="logs/evaluation_log.jsonl",
-        help="Path to the detailed evaluation log file (jsonl format)."
-    )
-    parser.add_argument(
-        "--output_suggestion", 
-        type=str, 
-        help="Optional: Path to save the tuning suggestion."
-    )
+    parser = argparse.ArgumentParser(description="Suggest new weights based on evaluation results.")
+    parser.add_argument("--report", type=str, default="reports/metrics_report.json")
+    parser.add_argument("--current_weights", type=str, default="config/weights.yaml")
+    parser.add_argument("--output", type=str, default="suggested_weights.yaml")
     args = parser.parse_args()
-    main(args)
+
+    suggest_new_weights(
+        project_root / args.report,
+        project_root / args.current_weights,
+        project_root / args.output
+    )
