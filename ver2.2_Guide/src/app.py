@@ -24,7 +24,7 @@ app_state: AppState = st.session_state.app_state
 with st.sidebar:
     st.title("APIキー設定")
     openai_api_key = st.text_input("OpenAI API Key", type="password", placeholder="sk-...")
-    gcp_sa_json_str = st.text_area("GCP Service Account JSON", type="password", placeholder='{\n  "type": "service_account",\n  ...\n}')
+    gcp_sa_json_str = st.text_area("GCP Service Account JSON", placeholder='{\n  "type": "service_account",\n  ...\n}')
     
     if st.button("APIキーを設定"):
         setup_api_keys(openai_api_key, gcp_sa_json_str)

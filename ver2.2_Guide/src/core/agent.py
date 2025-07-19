@@ -37,7 +37,7 @@ ROUTER_PROMPT = ChatPromptTemplate.from_template(
 CONTINUE_DIALOGUE_PROMPT = ChatPromptTemplate.from_template(
     """あなたは、特許調査をサポートするAIアシスタントです。
     ユーザーの意図を深く理解するため、多様な切り口から調査の可能性を広げる質問を投げかけてください。
-    以下の対話履歴を分析し、ユーザーが気づいていないかもしれない潜在的なニーズを掘り起こすような、鋭い質問をしてください。
+    以下の対話履歴を分析し、ユーザーが気づいていないかもしれない潜在的なニーズを掘り起こすような、**100字前後**の質問をしてください。
     
     対話履歴:
     {chat_history}
@@ -55,15 +55,13 @@ CONTINUE_DIALOGUE_PROMPT = ChatPromptTemplate.from_template(
 
     あなたの応答:"""
 )
-)
 
 # 調査方針生成用プロンプト
 GENERATE_PLAN_PROMPT = ChatPromptTemplate.from_template(
     """あなたは、特許調査の専門家です。
     以下の対話履歴から、ユーザーが本当に調査したいであろう内容の核心を捉え、
-    200〜300字程度の調査方針を立案してください。
-    調査方針は、背景、目的、具体的な調査対象（技術、課題、応用先など）を含むように構成してください。
-
+    **100字前後**で、簡潔に、かつ要点を押さえて調査方針を立案してください。
+    
     対話履歴:
     {chat_history}
 

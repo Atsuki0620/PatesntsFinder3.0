@@ -15,8 +15,8 @@
 
 1. 仮想環境を作成し、アクティベートします。
     ```bash
-    python -m venv env-PatentsFinder2.1
-    .\env-PatentsFinder2.1\Scripts\activate  # Windows
+    python -m venv env-PatentsFinder3.0
+    .\env-PatentsFinder3.0\Scripts\activate  # Windows
     ```
 2. 必要なライブラリをインストールします。
     ```bash
