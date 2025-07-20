@@ -66,4 +66,8 @@
 ### 7. 次回作業再開時に��初に実行すべきステップの提案
 1.  `cd C:\Users\atsuk\OneDrive\ドキュメント\GeminiCLI\2507 PatentsFinder3.0`
 2.  `.\env-PatentsFinder3.0\Scripts\activate`
-3.  `patents_core/core/agent.py` を開き、`PROMPT_CLARIFY_VIEWPOINTS` の具体的なプロンプト文面の作成から開始する。
+3.  `patents_core/core/agent.py` を開き、`PROMPT_CLARIFY_VIEWPOINTS` の具体的なプロンプト文面の作成から開始する。IPCコードのリストを持つ。IPCコードを当てるエージェントを作る。
+
+### その他
+- IPCコードを推定するAIエージェントを作成し、AIの予測したIPCコードの精度を上げていく。
+- IPCコードの全体のコード一覧を事前に保持しておくことで、IPCコードを正確に当てる。

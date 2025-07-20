@@ -1,0 +1,7 @@
+feat: Implement and test autonomous improvement cycle
+
+- Implement scripts for evaluation, suggestion, and application of tuning.
+- Add and run a patent investigation, revealing search precision issues.
+- Analyze root causes and propose a 3-step action plan for improvement.
+- Reorganize project structure, creating 'docs' and 'investigations' dirs.
+- Add a session summary for future work.
